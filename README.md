@@ -38,7 +38,7 @@ While the theme aims to be compatible with as many native customization features
 | `is-phi-menu-icon`                       | Whether to show Phi's logo in place of Vivaldi's as menu button. | `1` = enable<br />`0` = disable           | `1`     |
 | `toolbar-column-count`                   | Number of toolbar buttons per row above the URL bar.         | Any quantity                              | `5`     |
 | `address-bar-focused-width-increase`     | Enlarge the URL bar over the page content when focused.      | Any number (in pixels)<br />`0` = disable | `200`   |
-| `is-address-bar-focused-height-increase` | Whether to enlarge the URL bar over the extensions row below it when focused. | `1` = enable<br />`2` = disable           | `1`     |
+| `is-address-bar-focused-height-increase` | Whether to enlarge the URL bar over the extensions row below it when focused. | `1` = enable<br />`0` = disable           | `1`     |
 | `address-bar-font-size-decrease`         | Lower the character size of the URL to see more of it.       | Any number (in pixels)<br />`0` = disable | `1`     |
 | `is-address-bar-unfocused-hide-icons`    | Whether to hide icons<sup>(2)</sup> in the URL bar when not focused to see more of the URL. | `1` = enable<br />`0` = disable           | `1`     |
 | `is-address-bar-focused-hide-icons`      | Whether to hide icons<sup>(2)</sup> in the URL bar when focused to see more of the URL. | `1` = enable<br />`0` = disable           | `0`     |
