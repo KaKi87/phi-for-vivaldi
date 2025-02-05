@@ -97,10 +97,10 @@
 }
 
 #webview-container       { grid-row: 1 / 5; }
-[name="WorkspaceButton"] { grid-row: 1 / 2; }
-[aria-label="Address"]   { grid-row: 2 / 3; }
-#tabs-container          { grid-row: 3 / 4; }
-[aria-label="Panels"]    { grid-row: 4 / 5; }
+[name="WorkspaceButton"] { grid-row: 1 / span 1; }
+[aria-label="Address"]   { grid-row: 2 / span 1; }
+#tabs-container          { grid-row: 3 / span 1; }
+[aria-label="Panels"]    { grid-row: 4 / span 1; }
 
 .vivaldi
 {
@@ -167,7 +167,7 @@
 
     .tabs-right [aria-label="Address"]:has(#urlFieldInput:focus) > *:first-child
     {
-        grid-column: 2 / 3;
+        grid-column: 2 / span 1;
     }
 
     .tabs-right:has(#urlFieldInput:focus) .toolbar-extensions
@@ -192,7 +192,7 @@
 
 .UrlBar-AddressField:has(#urlFieldInput:focus)
 {
-    grid-column: 1 / 7;
+    grid-column: 1 / -1;
     height: 100% !important;
     font-size: unset;
 }
@@ -201,7 +201,7 @@
 {
     .UrlBar-AddressField:has(#urlFieldInput:focus)
     {
-        grid-row: 2 / 4;
+        grid-row: 2 / span 2;
     }
 }
 
@@ -240,7 +240,7 @@
 
 .toolbar-extensions
 {
-    grid-row: 3 / 4;
+    grid-row: 3 / span 1;
 }
 
 #panels-container
@@ -344,7 +344,7 @@
     .tab,
     .tab-group-indicator
     {
-        grid-column: 1 / 2;
+        grid-column: 1 / -1;
     }
 
     .tab
