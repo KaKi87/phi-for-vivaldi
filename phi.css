@@ -97,10 +97,16 @@
 }
 
 #webview-container       { grid-row: 1 / 5; }
-[name="WorkspaceButton"] { grid-row: 1 / span 1; }
-[aria-label="Address"]   { grid-row: 2 / span 1; }
+[aria-label="Address"]   { grid-row: 1 / span 1; }
+[name="WorkspaceButton"] { grid-row: 2 / span 1; }
 #tabs-container          { grid-row: 3 / span 1; }
 [aria-label="Panels"]    { grid-row: 4 / span 1; }
+
+.window-buttongroup
+{
+    position: relative !important;
+    grid-column: 1 / -1;
+}
 
 .vivaldi
 {
@@ -127,17 +133,29 @@
 [aria-label="Address"],
 #tabs-container
 {
-    padding: 0 5px;
+    padding: 0 5px !important;
 }
 
 [aria-label="Address"]
 {
+    --address-bar-row: 2;
+    --extensions-row: 3;
     width: 100%;
     height: auto !important;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(var(--toolbar-column-count), calc(100% / var(--toolbar-column-count)));
-    margin-bottom: 5px;
+}
+
+.native [aria-label="Address"]
+{
+    padding-top: 5px !important;
+}
+
+[aria-label="Address"]:has(.window-buttongroup)
+{
+    --address-bar-row: 3;
+    --extensions-row: 4;
 }
 
 @container not style(--address-bar-focused-width-increase: 0)
@@ -185,6 +203,7 @@
 
 .UrlBar-AddressField
 {
+    grid-row-start: var(--address-bar-row);
     z-index: 2;
     margin: 0;
     font-size: calc(13px - calc(var(--address-bar-font-size-decrease) * 1px));
@@ -201,7 +220,7 @@
 {
     .UrlBar-AddressField:has(#urlFieldInput:focus)
     {
-        grid-row: 2 / span 2;
+        grid-row-end: span 2;
     }
 }
 
@@ -240,7 +259,12 @@
 
 .toolbar-extensions
 {
-    grid-row: 3 / span 1;
+    grid-row: var(--extensions-row) / span 1;
+}
+
+[name="WorkspaceButton"]
+{
+    margin: 0 5px 5px 5px;
 }
 
 #panels-container
