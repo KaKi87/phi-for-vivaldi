@@ -91,7 +91,7 @@
 [name="WorkspaceButton"],
 .toolbar-mainbar,
 #tabs-container,
-[aria-label="Panels"]
+.toolbar-panel
 {
     grid-column: var(--sidebar-order) / span 1;
 }
@@ -100,7 +100,7 @@
 .toolbar-mainbar         { grid-row: 1 / span 1; }
 [name="WorkspaceButton"] { grid-row: 2 / span 1; }
 #tabs-container          { grid-row: 3 / span 1; }
-[aria-label="Panels"]    { grid-row: 4 / span 1; }
+.toolbar-panel           { grid-row: 4 / span 1; }
 
 .window-buttongroup
 {
@@ -277,8 +277,8 @@
 {
     display: contents;
 }
-#panels-container:not(:has(.panel-collapse-guard)) [aria-label="Panels"],
-#panels-container:has(.panel-collapse-guard[aria-hidden="true"]) [aria-label="Panels"]
+#panels-container:not(:has(.panel-collapse-guard)) .toolbar-panel,
+#panels-container:has(.panel-collapse-guard[aria-hidden="true"]) .toolbar-panel
 {
     flex-direction: row !important;
     flex-wrap: wrap;
