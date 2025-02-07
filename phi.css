@@ -183,9 +183,14 @@
         grid-template-columns: var(--address-bar-expansion-width) var(--toolbar-columns);
     }
 
-    .tabs-right .toolbar-mainbar:has(#urlFieldInput:focus) > *:first-child
+    .tabs-right .toolbar-mainbar:has(#urlFieldInput:focus) .window-buttongroup
     {
-        grid-column: 2 / span 1;
+        grid-column-start: 2;
+    }
+
+    .tabs-right .toolbar-mainbar:has(#urlFieldInput:focus) > *:is(.vivaldi, .button-toolbar):first-of-type
+    {
+        grid-column-start: 2;
     }
 
     .tabs-right:has(#urlFieldInput:focus) .toolbar-extensions
