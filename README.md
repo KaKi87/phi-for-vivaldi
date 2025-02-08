@@ -1,13 +1,13 @@
-# <img src="./phi.svg" width="32" height="32"> Phi (/faɪ/)
+# <img src="./icons/phi.svg" width="32" height="32"> Phi (/faɪ/)
 
 The ultimate vertical experience theme for Vivaldi, made with attention to details.
 
-| ![](./1_linux.webp)            | ![](./2_mac.webp)          | ![](./3_windows.webp)            |
+| ![](./screenshots/1_linux.webp)            | ![](./screenshots/2_mac.webp)          | ![](./screenshots/3_windows.webp)            |
 | ------------------------------ | -------------------------- | -------------------------------- |
 | Default theme on Linux         | Default theme on Mac       | Default theme on Windows         |
-| ![](./4_address_bar_focus.gif) | ![](./5_stacked_tabs.gif)  | ![](./6_pinned_stacked_tabs.gif) |
+| ![](./screenshots/4_address_bar_focus.gif) | ![](./screenshots/5_stacked_tabs.gif)  | ![](./screenshots/6_pinned_stacked_tabs.gif) |
 | Address bar zooms in on focus  | Stacked tabs side by side  | Pinned stacked tabs              |
-| ![](./7_panels.gif)            | ![](./8_right_side_UI.gif) | ![](./9_themes.gif)              |
+| ![](./screenshots/7_panels.gif)            | ![](./screenshots/8_right_side_UI.gif) | ![](./screenshots/9_themes.gif)              |
 | Panels                         | Right side UI              | Themed                           |
 
 ## :gear: Installation
@@ -62,7 +62,7 @@ Applying modifications require restarting Vivaldi.
 
 ## 🛜 Why "Phi" ?
 
-Phi (φ) is a greek letter, used (among other things) to designate angles, like (for example) [sextant](https://en.wikipedia.org/wiki/Sextant) (<a href="https://en.wikipedia.org/wiki/Arc_(web_browser)" target="_blank"><img src="./arc.svg" width="32" height="32"></a>) & [compass](https://en.wikipedia.org/wiki/Compass) (<a href="https://en.wikipedia.org/wiki/Safari_(web_browser)" target="_blank"><img src="./safari.svg" width="32" height="32"></a>) measurements for *navigation*.
+Phi (φ) is a greek letter, used (among other things) to designate angles, like (for example) [sextant](https://en.wikipedia.org/wiki/Sextant) (<a href="https://en.wikipedia.org/wiki/Arc_(web_browser)" target="_blank"><img src="./icons/arc.svg" width="32" height="32"></a>) & [compass](https://en.wikipedia.org/wiki/Compass) (<a href="https://en.wikipedia.org/wiki/Safari_(web_browser)" target="_blank"><img src="./icons/safari.svg" width="32" height="32"></a>) measurements for *navigation*.
 
 ## :link: Related projects
 
