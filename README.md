@@ -2,10 +2,13 @@
 
 The ultimate vertical experience theme for Vivaldi, made with attention to details.
 
-| ![](./screenshot1.webp) | ![](./screenshot2.webp) |
-| ----------------------- | ----------------------- |
-| ![](./screenshot3.webp) | ![](./screenshot4.webp) |
-| ![](./screenshot5.webp) | ![](./screenshot6.webp) |
+| ![](./1_linux.webp)            | ![](./2_mac.webp)          | ![](./3_windows.webp)            |
+| ------------------------------ | -------------------------- | -------------------------------- |
+| Default theme on Linux         | Default theme on Mac       | Default theme on Windows         |
+| ![](./4_address_bar_focus.gif) | ![](./5_stacked_tabs.gif)  | ![](./6_pinned_stacked_tabs.gif) |
+| Address bar zooms in on focus  | Stacked tabs side by side  | Pinned stacked tabs              |
+| ![](./7_panels.gif)            | ![](./8_right_side_UI.gif) | ![](./9_themes.gif)              |
+| Panels                         | Right side UI              | Themed                           |
 
 ## :gear: Installation
 
@@ -36,16 +39,17 @@ While the theme aims to be compatible with as many native customization features
 | ---------------------------------------- | ------------------------------------------------------------ | ----------------------------------------- | ------- |
 | `sidebar-width`                          | Amount of horizontal space for the area containing the whole UI.<sup>(1)</sup> | Any number (in pixels)                    | `210`   |
 | `is-phi-menu-icon`                       | Whether to show Phi's logo in place of Vivaldi's as menu button. | `1` = enable<br />`0` = disable           | `1`     |
-| `toolbar-column-count`                   | Number of toolbar buttons per row above the URL bar.         | Any quantity                              | `5`     |
+| `toolbar-column-count`                   | Number of toolbar buttons above the URL bar.<sup>(2)</sup>   | Any quantity                              | `5`     |
 | `address-bar-focused-width-increase`     | Enlarge the URL bar over the page content when focused.      | Any number (in pixels)<br />`0` = disable | `200`   |
 | `is-address-bar-focused-height-increase` | Whether to enlarge the URL bar over the extensions row below it when focused. | `1` = enable<br />`0` = disable           | `1`     |
 | `address-bar-font-size-decrease`         | Lower the character size of the URL to see more of it.       | Any number (in pixels)<br />`0` = disable | `1`     |
-| `is-address-bar-unfocused-hide-icons`    | Whether to hide icons<sup>(2)</sup> in the URL bar when not focused to see more of the URL. | `1` = enable<br />`0` = disable           | `1`     |
-| `is-address-bar-focused-hide-icons`      | Whether to hide icons<sup>(2)</sup> in the URL bar when focused to see more of the URL. | `1` = enable<br />`0` = disable           | `0`     |
+| `is-address-bar-unfocused-hide-icons`    | Whether to hide icons<sup>(3)</sup> in the URL bar when not focused to see more of the URL. | `1` = enable<br />`0` = disable           | `1`     |
+| `is-address-bar-focused-hide-icons`      | Whether to hide icons<sup>(3)</sup> in the URL bar when focused to see more of the URL. | `1` = enable<br />`0` = disable           | `0`     |
 | `pinned-column-count`                    | Number of pinned tabs per row.                               | Any quantity                              | `4`     |
 
 <sup>(1)</sup> Unfortunately, the sidebar cannot be resized by drag-and-drop.<br>
-<sup>(2)</sup> With the exception of (in)valid HTTP(S), obfuscated domain name, and loading indicators.
+<sup>(2)</sup> Unfortunately, the toolbar cannot have more than one row (unless hard-coded to do so, trust me I tried hard).<br>
+<sup>(3)</sup> With the exception of (in)valid HTTP(S), obfuscated domain name, and loading indicators.
 
 Applying modifications require restarting Vivaldi.
 
@@ -65,6 +69,7 @@ Phi (φ) is a greek letter, used (among other things) to designate angles, like 
 - [ImMainTheme/ArchyVivaldi](https://github.com/ImMainTheme/ArchyVivaldi)
 - [tovifun/VivalArc](https://github.com/tovifun/VivalArc)
 - [(Address Bar + Title Bar + Status Bar) = Docked to side | Vivaldi Forum](https://forum.vivaldi.net/topic/80588/address-bar-title-bar-status-bar-docked-to-side)
+- [HKayn/vivaldi-vh](https://github.com/HKayn/vivaldi-vh)
 
 ## :technologist: Development notes
 
