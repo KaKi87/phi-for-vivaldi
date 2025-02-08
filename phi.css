@@ -228,11 +228,11 @@
 
 @container style(--is-address-bar-unfocused-hide-icons: 1)
 {
-    #browser:not(:has(.button-popup)) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child > *:not(.UrlBar-UrlObfuscationWarning, [class^="pageload"])
+    #browser:not(:has(.button-popup-center)) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child > *:not(.UrlBar-UrlObfuscationWarning, [class^="pageload"])
     {
         display: none;
     }
-    #browser:not(:has(.button-popup)) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child:has(.progressing) .UrlBar-UrlObfuscationWarning
+    #browser:not(:has(.button-popup-center)) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child:has(.progressing) .UrlBar-UrlObfuscationWarning
     {
         display: none;
     }
