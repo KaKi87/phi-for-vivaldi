@@ -3,12 +3,12 @@
 The ultimate vertical experience theme for Vivaldi, made with attention to details.
 
 | ![](./screenshots/1_linux.webp)            | ![](./screenshots/2_mac.webp)          | ![](./screenshots/3_windows.webp)            |
-| ------------------------------ | -------------------------- | -------------------------------- |
-| Default theme on Linux         | Default theme on Mac       | Default theme on Windows         |
+|--------------------------------------------|----------------------------------------|----------------------------------------------|
+| Default theme on Linux                     | Default theme on Mac                   | Default theme on Windows                     |
 | ![](./screenshots/4_address_bar_focus.gif) | ![](./screenshots/5_stacked_tabs.gif)  | ![](./screenshots/6_pinned_stacked_tabs.gif) |
-| Address bar zooms in on focus  | Stacked tabs side by side  | Pinned stacked tabs              |
+| Address bar zooms in on focus              | Stacked tabs side by side              | Pinned stacked tabs                          |
 | ![](./screenshots/7_panels.gif)            | ![](./screenshots/8_right_side_UI.gif) | ![](./screenshots/9_themes.gif)              |
-| Panels                         | Right side UI              | Themed                           |
+| Panels                                     | Right side UI                          | Themed                                       |
 
 ## :gear: Installation
 
