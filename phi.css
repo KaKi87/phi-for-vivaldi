@@ -183,12 +183,9 @@
         grid-template-columns: var(--address-bar-expansion-width) var(--toolbar-columns);
     }
 
+    .tabs-right.native .toolbar-mainbar:has(#urlFieldInput:focus) > *:first-child,
+    .tabs-right:not(.native) .toolbar-mainbar:has(#urlFieldInput:focus) > *:is(.vivaldi, .button-toolbar):first-of-type,
     .tabs-right .toolbar-mainbar:has(#urlFieldInput:focus) .window-buttongroup
-    {
-        grid-column-start: 2;
-    }
-
-    .tabs-right .toolbar-mainbar:has(#urlFieldInput:focus) > *:is(.vivaldi, .button-toolbar):first-of-type
     {
         grid-column-start: 2;
     }
