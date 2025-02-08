@@ -179,6 +179,7 @@
 
     .tabs-right:has(#urlFieldInput:focus) .toolbar-mainbar
     {
+        left: unset;
         right: calc(100% - 10px);
         grid-template-columns: var(--address-bar-expansion-width) var(--toolbar-columns);
     }
