@@ -56,6 +56,7 @@ Applying modifications require restarting Vivaldi.
 ##  :handshake: Support
 
 - [Issues](https://git.kaki87.net/KaKi87/phi-for-vivaldi/issues)
+- [GitHub Issues](https://github.com/KaKi87/phi-for-vivaldi/issues)
 - [Discord](https://discord.gg/pdgQE6juqM)
 - [Reddit](https://old.reddit.com/r/vivaldibrowser/comments/1ieyt5a/)
 - [Vivaldi forum](https://forum.vivaldi.net/topic/105134/%CF%86-phi-the-ultimate-vertical-experience-theme-for-vivaldi-made-with-attention-to-details)
