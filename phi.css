@@ -43,7 +43,8 @@
 .ContentBlocker-Control,
 .profile-popup,
 .is-pinned .title,
-.tab-group .title:not(:has(.tab-title-edit))
+.tab-group .title:not(:has(.tab-title-edit)),
+#tabs-tabbar-container .SlideBar
 {
     display: none !important;
 }
