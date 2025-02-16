@@ -32,11 +32,11 @@
   │Source code│
   └───────────┘*/
 
-.minimal-ui .toolbar-mainbar,
+.minimal-ui [aria-label="Address"],
 .minimal-ui #panels-container,
 .linux.minimal-ui #header,
 .win.minimal-ui #header,
-.mac.fullscreen .toolbar-mainbar,
+.mac.fullscreen [aria-label="Address"],
 .mac.fullscreen #panels-container,
 .mac.fullscreen .tabbar-wrapper,
 .separator-wsbutton,
@@ -90,7 +90,7 @@
 }
 
 [name="WorkspaceButton"],
-.toolbar-mainbar,
+[aria-label="Address"],
 #tabs-container,
 .toolbar-panel
 {
@@ -98,7 +98,7 @@
 }
 
 #webview-container       { grid-row: 1 / 5; }
-.toolbar-mainbar         { grid-row: 1 / span 1; }
+[aria-label="Address"]   { grid-row: 1 / span 1; }
 [name="WorkspaceButton"] { grid-row: 2 / span 1; }
 #tabs-container          { grid-row: 3 / span 1; }
 .toolbar-panel           { grid-row: 4 / span 1; }
@@ -131,13 +131,13 @@
     }
 }
 
-.toolbar-mainbar,
+[aria-label="Address"],
 #tabs-container
 {
     padding: 0 5px !important;
 }
 
-.toolbar-mainbar
+[aria-label="Address"]
 {
     --address-bar-row: 2;
     --extensions-row: 3;
@@ -148,12 +148,12 @@
     grid-template-columns: repeat(var(--toolbar-column-count), calc(100% / var(--toolbar-column-count)));
 }
 
-.native .toolbar-mainbar
+.native [aria-label="Address"]
 {
     padding-top: 5px !important;
 }
 
-.toolbar-mainbar:has(.window-buttongroup)
+[aria-label="Address"]:has(.window-buttongroup)
 {
     --address-bar-row: 3;
     --extensions-row: 4;
@@ -161,33 +161,33 @@
 
 @container not style(--address-bar-focused-width-increase: 0)
 {
-    .toolbar-mainbar
+    [aria-label="Address"]
     {
         --address-bar-expansion-width: calc(var(--address-bar-focused-width-increase) * 1px);
         --toolbar-width: calc((100% - var(--address-bar-expansion-width)) / var(--toolbar-column-count));
         --toolbar-columns: repeat(var(--toolbar-column-count), var(--toolbar-width));
     }
 
-    .toolbar-mainbar:has(#urlFieldInput:focus)
+    [aria-label="Address"]:has(#urlFieldInput:focus)
     {
         width: calc(100% + var(--address-bar-expansion-width));
     }
 
-    .tabs-left:has(#urlFieldInput:focus) .toolbar-mainbar
+    .tabs-left:has(#urlFieldInput:focus) [aria-label="Address"]
     {
         grid-template-columns: var(--toolbar-columns) var(--address-bar-expansion-width);
     }
 
-    .tabs-right:has(#urlFieldInput:focus) .toolbar-mainbar
+    .tabs-right:has(#urlFieldInput:focus) [aria-label="Address"]
     {
         left: unset;
         right: calc(100% - 10px);
         grid-template-columns: var(--address-bar-expansion-width) var(--toolbar-columns);
     }
 
-    .tabs-right.native .toolbar-mainbar:has(#urlFieldInput:focus) > *:first-child,
-    .tabs-right:not(.native) .toolbar-mainbar:has(#urlFieldInput:focus) > *:is(.vivaldi, .button-toolbar):first-of-type,
-    .tabs-right .toolbar-mainbar:has(#urlFieldInput:focus) .window-buttongroup
+    .tabs-right.native [aria-label="Address"]:has(#urlFieldInput:focus) > *:first-child,
+    .tabs-right:not(.native) [aria-label="Address"]:has(#urlFieldInput:focus) > *:is(.vivaldi, .button-toolbar):first-of-type,
+    .tabs-right [aria-label="Address"]:has(#urlFieldInput:focus) .window-buttongroup
     {
         grid-column-start: 2;
     }
