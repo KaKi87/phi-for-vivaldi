@@ -148,15 +148,15 @@
     grid-template-columns: repeat(var(--toolbar-column-count), calc(100% / var(--toolbar-column-count)));
 }
 
-.native [aria-label="Address"]
-{
-    padding-top: 5px !important;
-}
-
 [aria-label="Address"]:has(.window-buttongroup)
 {
     --address-bar-row: 3;
     --extensions-row: 4;
+}
+
+.native [aria-label="Address"]
+{
+    padding-top: 5px !important;
 }
 
 @container not style(--address-bar-focused-width-increase: 0)
@@ -284,11 +284,13 @@
     position: absolute !important;
     z-index: 4 !important;
 }
+
 #panels-container:not(:has(.panel-collapse-guard)),
 #panels-container:has(.panel-collapse-guard[aria-hidden="true"])
 {
     display: contents;
 }
+
 #panels-container:not(:has(.panel-collapse-guard)) .toolbar-panel,
 #panels-container:has(.panel-collapse-guard[aria-hidden="true"]) .toolbar-panel
 {
