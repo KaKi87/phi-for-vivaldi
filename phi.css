@@ -267,6 +267,13 @@
     flex-wrap: wrap;
 }
 
+.toolbar-extensions button
+{
+    min-width: unset !important;
+    width: 30px;
+    height: 30px !important;
+}
+
 [name="WorkspaceButton"]
 {
     margin: 0 5px 5px 5px;
