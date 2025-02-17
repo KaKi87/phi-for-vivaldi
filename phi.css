@@ -279,7 +279,7 @@
     margin: 0 5px 5px 5px;
 }
 
-#panels-container
+#panels-container:has(.panel-collapse-guard[aria-hidden="false"])
 {
     position: absolute !important;
     z-index: 4 !important;
