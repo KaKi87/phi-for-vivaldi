@@ -326,6 +326,7 @@
     
         .toolbar-panel
         {
+            margin: 0;
             flex-direction: row !important;
             flex-wrap: wrap;
         }
@@ -347,9 +348,9 @@
     {
         content: '';
         width: 100%;
-        border-top: 1px solid var(--colorAccentFg);
+        border: 1px solid var(--colorAccentFg);
         opacity: 0.15;
-        margin: 5px 10px;
+        margin: 5px;
     }
     
     .tab-strip
@@ -381,6 +382,17 @@
         margin: 0;
         padding: 0;
         max-height: unset;
+    }
+
+    .tab-strip .separator
+    {
+        align-items: center;
+    }
+
+    .tab-strip .separator hr
+    {
+        margin: 0;
+        width: 100%;
     }
 
     &:has(#panel_switch) .tab
