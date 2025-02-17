@@ -289,13 +289,12 @@
 #panels-container:has(.panel-collapse-guard[aria-hidden="true"])
 {
     display: contents;
-}
 
-#panels-container:not(:has(.panel-collapse-guard)) .toolbar-panel,
-#panels-container:has(.panel-collapse-guard[aria-hidden="true"]) .toolbar-panel
-{
-    flex-direction: row !important;
-    flex-wrap: wrap;
+    .toolbar-panel
+    {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+    }
 }
 
 .tab-strip
