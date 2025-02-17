@@ -382,7 +382,12 @@
         padding: 0;
         max-height: unset;
     }
-    
+
+    &:has(#panel_switch) .tab
+    {
+        flex: 1;
+    }
+
     .tab-group-indicator
     {
         position: relative;
