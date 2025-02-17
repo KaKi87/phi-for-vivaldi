@@ -44,7 +44,7 @@
     }
 }
 
-#browser:not(.fullscreen, .minimal-ui, .popup)
+#browser:not(.fullscreen, .minimal-ui, .popup, .tabs-top, .tabs-bottom)
 {
     .separator-wsbutton,
     .ContentBlocker-Control,
