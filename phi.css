@@ -363,14 +363,14 @@
     }
     
     .tab-wrapper,
-    .separator,
+    .tab-strip .separator,
     .newtab
     {
         grid-column: 1 / span var(--pinned-column-count);
     }
     
     .tab-wrapper,
-    .separator
+    .tab-strip .separator
     {
         position: relative;
         transform: none;
