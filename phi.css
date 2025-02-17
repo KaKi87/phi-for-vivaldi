@@ -405,7 +405,7 @@
     {
         padding-left: 10px !important;
     }
-    
+
     &:has(#panel_switch) .tab .title
     {
         display: none;
