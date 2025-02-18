@@ -3,12 +3,14 @@
 The ultimate vertical experience theme for Vivaldi, made with attention to details.
 
 | ![](./screenshots/1_linux.webp)            | ![](./screenshots/2_mac.webp)          | ![](./screenshots/3_windows.webp)            |
-|--------------------------------------------|----------------------------------------|----------------------------------------------|
+| ------------------------------------------ | -------------------------------------- | -------------------------------------------- |
 | Default theme on Linux                     | Default theme on Mac                   | Default theme on Windows                     |
 | ![](./screenshots/4_address_bar_focus.gif) | ![](./screenshots/5_stacked_tabs.gif)  | ![](./screenshots/6_pinned_stacked_tabs.gif) |
 | Address bar zooms in on focus              | Stacked tabs side by side              | Pinned stacked tabs                          |
 | ![](./screenshots/7_panels.gif)            | ![](./screenshots/8_right_side_UI.gif) | ![](./screenshots/9_themes.gif)              |
 | Panels                                     | Right side UI                          | Themed                                       |
+| ![](./screenshots/10_compact_mode.gif)     |                                        |                                              |
+| Compact mode                               |                                        |                                              |
 
 ## :gear: Installation
 
@@ -24,6 +26,7 @@ The ultimate vertical experience theme for Vivaldi, made with attention to detai
    - Under "Tabs" ➔ "Tab Display" ➔ "Tab Options", uncheck "Show Popup Thumbnails" ;
    - Under "Tabs" ➔ "Tab Features" ➔ "Tab Stacking", select "Compact" ;
    - Under "Panel" ➔ "Panels" ➔ "Panel Options", check "Floating Panel" ;
+   - (Optionally) Under "Keyboard" ➔ "View" ➔ "Panel Toggle", set a shortcut for compact mode ;
 5. Quit and relaunch Vivaldi ;
 6. Start tweaking the UI ;
    - Right-click in the blank above the URL bar then "Customize Toolbar..." ;
@@ -38,6 +41,7 @@ While the theme aims to be compatible with as many native customization features
 | Name                                     | Description                                                  | Value(s)                                  | Default |
 | ---------------------------------------- | ------------------------------------------------------------ | ----------------------------------------- | ------- |
 | `sidebar-width`                          | Amount of horizontal space for the area containing the whole UI.<sup>(1)</sup> | Any number (in pixels)                    | `210`   |
+| `compact-sidebar-width`                  | Amount of horizontal space for the area containing the whole UI in compact mode.<sup>(1)</sup> | Any number (in pixels)                    | `50`    |
 | `is-phi-menu-icon`                       | Whether to show Phi's logo in place of Vivaldi's as menu button. | `1` = enable<br />`0` = disable           | `1`     |
 | `toolbar-column-count`                   | Number of toolbar buttons above the URL bar.<sup>(2)</sup>   | Any quantity                              | `5`     |
 | `address-bar-focused-width-increase`     | Enlarge the URL bar over the page content when focused.      | Any number (in pixels)<br />`0` = disable | `200`   |
