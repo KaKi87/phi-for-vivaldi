@@ -4,7 +4,6 @@ The ultimate vertical experience theme for Vivaldi, made with attention to detai
 
 | ![](./screenshots/1_linux.webp)            | ![](./screenshots/2_mac.webp)          | ![](./screenshots/3_windows.webp)            |
 | ------------------------------------------ | -------------------------------------- | -------------------------------------------- |
-| Default theme on Linux                     | Default theme on Mac                   | Default theme on Windows                     |
 
 ## :sparkles: Features
 
