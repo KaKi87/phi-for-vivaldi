@@ -5,8 +5,22 @@ The ultimate vertical experience theme for Vivaldi, made with attention to detai
 | ![](./screenshots/1_linux.webp)            | ![](./screenshots/2_mac.webp)          | ![](./screenshots/3_windows.webp)            |
 | ------------------------------------------ | -------------------------------------- | -------------------------------------------- |
 | Default theme on Linux                     | Default theme on Mac                   | Default theme on Windows                     |
+
+## :sparkles: Features
+
+- Supported Vivaldi features : UI on left & right sides, theming from [themes.vivaldi.net](https://themes.vivaldi.net), toggle UI, panels, popups ;
+- Enhanced Vivaldi features :
+  - Stacked tabs : displayed side by side with titles ;
+  - Pinned tabs : displayed as icon-only grid ;
+- Unique Phi features :
+  - Address bar : expandable on focus ;
+  - Compact mode : icon-only sidebar, implemented under the "panel toggle" command, keyboard shortcut assignable.
+
+## :camera_flash: More screenshots​
+
 | ![](./screenshots/4_address_bar_focus.gif) | ![](./screenshots/5_stacked_tabs.gif)  | ![](./screenshots/6_pinned_stacked_tabs.gif) |
-| Address bar zooms in on focus              | Stacked tabs side by side              | Pinned stacked tabs                          |
+| ------------------------------------------ | -------------------------------------- | -------------------------------------------- |
+| Address bar focus                          | Stacked tabs                           | Pinned tabs                                  |
 | ![](./screenshots/7_panels.gif)            | ![](./screenshots/8_right_side_UI.gif) | ![](./screenshots/9_themes.gif)              |
 | Panels                                     | Right side UI                          | Themed                                       |
 | ![](./screenshots/10_compact_mode.gif)     |                                        |                                              |
@@ -56,6 +70,12 @@ While the theme aims to be compatible with as many native customization features
 <sup>(3)</sup> With the exception of (in)valid HTTP(S), obfuscated domain name, and loading indicators.
 
 Applying modifications require restarting Vivaldi.
+
+## :wrench: Troubleshooting
+
+- Double check Vivaldi settings as per installation step 4 ;
+- Find potentially incompatible settings by comparing with an empty profile ;
+- You may disable Phi by setting tab bar position to top or bottom.
 
 ##  :handshake: Support
 
