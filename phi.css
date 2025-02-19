@@ -27,6 +27,8 @@
     --is-address-bar-unfocused-hide-icons: 1;
     --is-address-bar-focused-hide-icons: 0;
     --pinned-column-count: 4;
+    --webview-border: 10;
+    --webview-border-radius: 5;
 }
 
 /*┌───────────┐
@@ -620,5 +622,84 @@
     &:has(#panel_switch) .sync-and-trash-container
     {
         display: none;
+    }
+    
+    #webview-container
+    {
+        --colorBgDarker: transparent;
+        --colorBorder: transparent;
+        --colorBorderIntense: transparent;
+    }
+
+    #webpage-stack > .tiled
+    {
+        padding: 5px !important;
+    }
+
+    .tiled
+    {
+        gap: 6px;
+    }
+
+    .tile
+    {
+        border: 0 !important;
+    }
+
+    @container not style(--webview-border: 0)
+    {
+        #webview-container,
+        #webpage-stack > .tiled
+        {
+            --border: calc(var(--webview-border) * 1px);
+            border: 0 solid transparent;
+        }
+
+        &:not(:has(.tiled.active))
+        {
+            #webview-container
+            {
+                border-top-width: var(--border);
+                border-bottom-width: var(--border);
+            }
+
+            &.tabs-left #webview-container
+            {
+                border-left-width: calc(var(--border) - 5px);
+                border-right-width: var(--border);
+            }
+
+            &.tabs-right #webview-container
+            {
+                border-left-width: var(--border);
+                border-right-width: calc(var(--border) - 5px);
+            }
+        }
+
+        #webpage-stack > .tiled
+        {
+            border-top-width: calc(var(--border) - 5px);
+            border-bottom-width: calc(var(--border) - 5px);
+        }
+
+        &.tabs-left #webpage-stack > .tiled
+        {
+            border-left-width: calc(var(--border) - 10px);
+            border-right-width: calc(var(--border) - 5px);
+        }
+
+        &.tabs-right #webpage-stack > .tiled
+        {
+            border-left-width: calc(var(--border) - 5px);
+            border-right-width: calc(var(--border) - 10px);
+        }
+    }
+
+    @container not style(--webview-border-radius: 0)
+    {
+        #webpage-stack
+        {
+            border-radius: calc(var(--webview-border-radius) * 1px);
+        }
     }
 }
