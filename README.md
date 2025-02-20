@@ -63,10 +63,14 @@ While the theme aims to be compatible with as many native customization features
 | `is-address-bar-unfocused-hide-icons`    | Whether to hide icons<sup>(3)</sup> in the URL bar when not focused to see more of the URL. | `1` = enable<br />`0` = disable           | `1`     |
 | `is-address-bar-focused-hide-icons`      | Whether to hide icons<sup>(3)</sup> in the URL bar when focused to see more of the URL. | `1` = enable<br />`0` = disable           | `0`     |
 | `pinned-column-count`                    | Number of pinned tabs per row.                               | Any quantity                              | `4`     |
+| `webview-border`                         | Amount of space around the page content.<sup>(4)</sup>       | Any number (in pixels)<br />`0` = disable | `0`     |
+| `webview-border-radius`                  | Round the corners of the page content.<sup>(5)</sup>         | Any quantity<br />`0` = disable           | `0`     |
 
 <sup>(1)</sup> Unfortunately, the sidebar cannot be resized by drag-and-drop.<br>
 <sup>(2)</sup> Unfortunately, the toolbar cannot have more than one row (unless hard-coded to do so, trust me I tried hard).<br>
-<sup>(3)</sup> With the exception of (in)valid HTTP(S), obfuscated domain name, and loading indicators.
+<sup>(3)</sup> With the exception of (in)valid HTTP(S), obfuscated domain name, and loading indicators.<br>
+<sup>(4)</sup> Reduces page content area. When enabled, recommended value is `10`. A lower value will reveal an unavoidable page content width inconsistency between normal & split tabs.<br>
+<sup>(5)</sup> When enabled, recommended value is `5`.
 
 Applying modifications require restarting Vivaldi.
 
