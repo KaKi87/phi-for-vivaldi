@@ -7,7 +7,7 @@ The ultimate vertical experience theme for Vivaldi, made with attention to detai
 
 ## :sparkles: Features
 
-- Supported Vivaldi features : UI on left & right sides, theming from [themes.vivaldi.net](https://themes.vivaldi.net), toggle UI, panels, popups ;
+- Supported Vivaldi features : UI on left & right sides, theming from [themes.vivaldi.net](https://themes.vivaldi.net), toggle UI, panels, popups, split tabs ;
 - Enhanced Vivaldi features :
   - Stacked tabs : displayed side by side with titles ;
   - Pinned tabs : displayed as icon-only grid ;
