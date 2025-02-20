@@ -332,6 +332,15 @@
             flex-direction: row !important;
             flex-wrap: wrap;
         }
+
+        .toolbar-panel::before
+        {
+            content: '';
+            width: 100%;
+            border: 1px solid var(--colorAccentFg);
+            opacity: 0.15;
+            margin: 5px;
+        }
     }
 
     &:has(#panel_switch)
@@ -344,15 +353,6 @@
                 justify-content: center;
             }
         }
-    }
-
-    .toolbar-panel::before
-    {
-        content: '';
-        width: 100%;
-        border: 1px solid var(--colorAccentFg);
-        opacity: 0.15;
-        margin: 5px;
     }
     
     .tab-strip
