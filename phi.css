@@ -27,8 +27,8 @@
     --is-address-bar-unfocused-hide-icons: 1;
     --is-address-bar-focused-hide-icons: 0;
     --pinned-column-count: 4;
-    --webview-border: 10;
-    --webview-border-radius: 5;
+    --webview-border: 0;
+    --webview-border-radius: 0;
 }
 
 /*┌───────────┐
