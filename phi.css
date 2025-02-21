@@ -261,13 +261,13 @@
     
     @container style(--is-address-bar-unfocused-hide-icons: 1)
     {
-        &:not(:has(.button-popup-center)) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child > *:not(.UrlBar-UrlObfuscationWarning, [class^="pageload"])
+        &:not(:has(.button-popup-center)) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child
         {
-            display: none;
-        }
-        &:not(:has(.button-popup-center)) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child:has(.progressing) .UrlBar-UrlObfuscationWarning
-        {
-            display: none;
+            & > *:not(.UrlBar-UrlObfuscationWarning, [class^="pageload"]),
+            &:has(.progressing) .UrlBar-UrlObfuscationWarning
+            {
+                display: none;
+            }
         }
     }
     
