@@ -425,7 +425,13 @@
         padding-left: 10px !important;
     }
 
-    &:has(#panel_switch) .tab .title
+    &:has(#panel_switch) .tab .favicon
+    {
+        margin: 0;
+    }
+
+    &:has(#panel_switch) .tab .title,
+    &:has(#panel_switch) .tab .close
     {
         display: none;
     }
