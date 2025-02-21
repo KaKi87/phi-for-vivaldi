@@ -17,18 +17,18 @@
 
 :root
 {
-    --sidebar-width: 210;
-    --compact-sidebar-width: 50;
-    --is-phi-menu-icon: 1;
-    --toolbar-column-count: 5;
-    --address-bar-focused-width-increase: 200;
-    --is-address-bar-focused-height-increase: 1;
-    --address-bar-font-size-decrease: 1;
-    --is-address-bar-unfocused-hide-icons: 1;
-    --is-address-bar-focused-hide-icons: 0;
-    --pinned-column-count: 4;
-    --webview-border: 0;
-    --webview-border-radius: 0;
+    --phi--sidebar-width: 210;
+    --phi--compact-sidebar-width: 50;
+    --phi--is-phi-menu-icon: 1;
+    --phi--toolbar-column-count: 5;
+    --phi--address-bar-focused-width-increase: 200;
+    --phi--is-address-bar-focused-height-increase: 1;
+    --phi--address-bar-font-size-decrease: 1;
+    --phi--is-address-bar-unfocused-hide-icons: 1;
+    --phi--is-address-bar-focused-hide-icons: 0;
+    --phi--pinned-column-count: 4;
+    --phi--webview-border: 0;
+    --phi--webview-border-radius: 0;
 }
 
 /*┌───────────┐
@@ -79,31 +79,31 @@
 
     &.tabs-left
     {
-        grid-template-columns: calc(var(--sidebar-width) * 1px) auto;
-        --sidebar-order: 1;
-        --page-order: 2;
+        grid-template-columns: calc(var(--phi--sidebar-width) * 1px) auto;
+        --phi--sidebar-order: 1;
+        --phi--page-order: 2;
     }
     
     &.tabs-right
     {
-        grid-template-columns: auto calc(var(--sidebar-width) * 1px);
-        --sidebar-order: 2;
-        --page-order: 1;
+        grid-template-columns: auto calc(var(--phi--sidebar-width) * 1px);
+        --phi--sidebar-order: 2;
+        --phi--page-order: 1;
     }
     
     &.tabs-left:has(#panel_switch)
     {
-        grid-template-columns: calc(var(--compact-sidebar-width) * 1px) auto;
+        grid-template-columns: calc(var(--phi--compact-sidebar-width) * 1px) auto;
     }
     
     &.tabs-right:has(#panel_switch)
     {
-        grid-template-columns: auto calc(var(--compact-sidebar-width) * 1px);
+        grid-template-columns: auto calc(var(--phi--compact-sidebar-width) * 1px);
     }
     
     #webview-container
     {
-        grid-column: var(--page-order) / span 1;
+        grid-column: var(--phi--page-order) / span 1;
     }
     
     [name="WorkspaceButton"],
@@ -111,7 +111,7 @@
     #tabs-container,
     .toolbar-panel
     {
-        grid-column: var(--sidebar-order) / span 1;
+        grid-column: var(--phi--sidebar-order) / span 1;
     }
     
     #webview-container       { grid-row: 1 / 5; }
@@ -134,7 +134,7 @@
         justify-self: center;
     }
     
-    @container style(--is-phi-menu-icon: 1)
+    @container style(--phi--is-phi-menu-icon: 1)
     {
         .vivaldi-v svg
         {
@@ -156,25 +156,25 @@
     
     [aria-label="Address"]
     {
-        --address-bar-row: 2;
-        --extensions-row: 3;
+        --phi--address-bar-row: 2;
+        --phi--extensions-row: 3;
         &:has(.window-buttongroup)
         {
-            --address-bar-row: 3;
-            --extensions-row: 4;
+            --phi--address-bar-row: 3;
+            --phi--extensions-row: 4;
         }
 
         width: 100%;
         height: auto !important;
         display: grid;
         grid-template-rows: 1fr 1fr auto;
-        grid-template-columns: repeat(var(--toolbar-column-count), calc(100% / var(--toolbar-column-count)));
+        grid-template-columns: repeat(var(--phi--toolbar-column-count), calc(100% / var(--phi--toolbar-column-count)));
     }
     
     [aria-label="Address"]:has(.window-buttongroup)
     {
-        --address-bar-row: 3;
-        --extensions-row: 4;
+        --phi--address-bar-row: 3;
+        --phi--extensions-row: 4;
     }
     
     &.native [aria-label="Address"]
@@ -187,23 +187,23 @@
         display: none;
     }
     
-    @container not style(--address-bar-focused-width-increase: 0)
+    @container not style(--phi--address-bar-focused-width-increase: 0)
     {
         [aria-label="Address"]
         {
-            --address-bar-expansion-width: calc(var(--address-bar-focused-width-increase) * 1px);
-            --toolbar-width: calc((100% - var(--address-bar-expansion-width)) / var(--toolbar-column-count));
-            --toolbar-columns: repeat(var(--toolbar-column-count), var(--toolbar-width));
+            --phi--address-bar-expansion-width: calc(var(--phi--address-bar-focused-width-increase) * 1px);
+            --phi--toolbar-width: calc((100% - var(--phi--address-bar-expansion-width)) / var(--phi--toolbar-column-count));
+            --phi--toolbar-columns: repeat(var(--phi--toolbar-column-count), var(--phi--toolbar-width));
         }
     
         [aria-label="Address"]:has(#urlFieldInput:focus)
         {
-            width: calc(100% + var(--address-bar-expansion-width));
+            width: calc(100% + var(--phi--address-bar-expansion-width));
         }
     
         &.tabs-left:has(#urlFieldInput:focus) [aria-label="Address"]
         {
-            grid-template-columns: var(--toolbar-columns) var(--address-bar-expansion-width);
+            grid-template-columns: var(--phi--toolbar-columns) var(--phi--address-bar-expansion-width);
         }
 
         &.tabs-right
@@ -212,7 +212,7 @@
             {
                 left: unset;
                 right: calc(100% - 10px);
-                grid-template-columns: var(--address-bar-expansion-width) var(--toolbar-columns);
+                grid-template-columns: var(--phi--address-bar-expansion-width) var(--phi--toolbar-columns);
             }
 
             &.native [aria-label="Address"]:has(#urlFieldInput:focus) > *:first-child,
@@ -224,7 +224,7 @@
         
             &:has(#urlFieldInput:focus) .toolbar-extensions
             {
-                grid-column: 2 / span var(--toolbar-column-count);
+                grid-column: 2 / span var(--phi--toolbar-column-count);
             }
         }
     }
@@ -233,15 +233,15 @@
     .toolbar-extensions,
     .UrlBar-PrivateWindowIndicator
     {
-        grid-column: 1 / span var(--toolbar-column-count);
+        grid-column: 1 / span var(--phi--toolbar-column-count);
     }
     
     .UrlBar-AddressField
     {
-        grid-row-start: var(--address-bar-row);
+        grid-row-start: var(--phi--address-bar-row);
         z-index: 2;
         margin: 0;
-        font-size: calc(13px - calc(var(--address-bar-font-size-decrease) * 1px));
+        font-size: calc(13px - calc(var(--phi--address-bar-font-size-decrease) * 1px));
     }
     
     .UrlBar-AddressField:has(#urlFieldInput:focus)
@@ -251,7 +251,7 @@
         font-size: unset;
     }
     
-    @container style(--is-address-bar-focused-height-increase: 1)
+    @container style(--phi--is-address-bar-focused-height-increase: 1)
     {
         .UrlBar-AddressField:has(#urlFieldInput:focus)
         {
@@ -259,7 +259,7 @@
         }
     }
     
-    @container style(--is-address-bar-unfocused-hide-icons: 1)
+    @container style(--phi--is-address-bar-unfocused-hide-icons: 1)
     {
         &:not(:has(.button-popup:not(.ToolbarButtonPopup-DefaultStyles))) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child
         {
@@ -271,7 +271,7 @@
         }
     }
     
-    @container style(--is-address-bar-focused-hide-icons: 1)
+    @container style(--phi--is-address-bar-focused-hide-icons: 1)
     {
         .UrlBar-AddressField:has(#urlFieldInput:focus) .toolbar-insideinput:last-child > *:not(.UrlBar-UrlObfuscationWarning)
         {
@@ -294,7 +294,7 @@
     
     .toolbar-extensions
     {
-        grid-row: var(--extensions-row) / span 1;
+        grid-row: var(--phi--extensions-row) / span 1;
         flex-wrap: wrap;
     }
     
@@ -359,7 +359,7 @@
     {
         overflow: hidden auto;
         display: grid;
-        grid-template-columns: repeat(var(--pinned-column-count), minmax(0, 1fr));
+        grid-template-columns: repeat(var(--phi--pinned-column-count), minmax(0, 1fr));
         grid-auto-rows: min-content;
         gap: 5px;
         justify-content: center;
@@ -369,7 +369,7 @@
     .tab-strip .separator,
     .newtab
     {
-        grid-column: 1 / span var(--pinned-column-count);
+        grid-column: 1 / span var(--phi--pinned-column-count);
     }
     
     .tab-wrapper,
@@ -652,12 +652,12 @@
         border: 0 !important;
     }
 
-    @container not style(--webview-border: 0)
+    @container not style(--phi--webview-border: 0)
     {
         #webview-container,
         #webpage-stack > .tiled
         {
-            --border: calc(var(--webview-border) * 1px);
+            --phi--border: calc(var(--phi--webview-border) * 1px);
             border: 0 solid transparent;
         }
 
@@ -665,47 +665,47 @@
         {
             #webview-container
             {
-                border-top-width: var(--border);
-                border-bottom-width: var(--border);
+                border-top-width: var(--phi--border);
+                border-bottom-width: var(--phi--border);
             }
 
             &.tabs-left #webview-container
             {
-                border-left-width: calc(var(--border) - 5px);
-                border-right-width: var(--border);
+                border-left-width: calc(var(--phi--border) - 5px);
+                border-right-width: var(--phi--border);
             }
 
             &.tabs-right #webview-container
             {
-                border-left-width: var(--border);
-                border-right-width: calc(var(--border) - 5px);
+                border-left-width: var(--phi--border);
+                border-right-width: calc(var(--phi--border) - 5px);
             }
         }
 
         #webpage-stack > .tiled
         {
-            border-top-width: calc(var(--border) - 5px);
-            border-bottom-width: calc(var(--border) - 5px);
+            border-top-width: calc(var(--phi--border) - 5px);
+            border-bottom-width: calc(var(--phi--border) - 5px);
         }
 
         &.tabs-left #webpage-stack > .tiled
         {
-            border-left-width: calc(var(--border) - 10px);
-            border-right-width: calc(var(--border) - 5px);
+            border-left-width: calc(var(--phi--border) - 10px);
+            border-right-width: calc(var(--phi--border) - 5px);
         }
 
         &.tabs-right #webpage-stack > .tiled
         {
-            border-left-width: calc(var(--border) - 5px);
-            border-right-width: calc(var(--border) - 10px);
+            border-left-width: calc(var(--phi--border) - 5px);
+            border-right-width: calc(var(--phi--border) - 10px);
         }
     }
 
-    @container not style(--webview-border-radius: 0)
+    @container not style(--phi--webview-border-radius: 0)
     {
         #webpage-stack
         {
-            border-radius: calc(var(--webview-border-radius) * 1px);
+            border-radius: calc(var(--phi--webview-border-radius) * 1px);
         }
     }
 }
