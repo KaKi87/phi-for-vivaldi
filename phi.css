@@ -261,7 +261,7 @@
     
     @container style(--is-address-bar-unfocused-hide-icons: 1)
     {
-        &:not(:has(.button-popup-center)) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child
+        &:not(:has(.button-popup:not(.ToolbarButtonPopup-DefaultStyles))) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child
         {
             & > *:not(.UrlBar-UrlObfuscationWarning, [class^="pageload"]),
             &:has(.progressing) .UrlBar-UrlObfuscationWarning
