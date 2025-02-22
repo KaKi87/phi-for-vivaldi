@@ -122,12 +122,14 @@
     
     .window-buttongroup
     {
+        -webkit-app-region: drag;
         position: relative !important;
         grid-column: 1 / -1;
     }
     
     .vivaldi
     {
+        position: relative;
         margin-left: 5px !important;
         margin-right: 0 !important;
         padding: 0;
@@ -175,6 +177,7 @@
     {
         --phi--address-bar-row: 3;
         --phi--extensions-row: 4;
+        grid-template-rows: 1fr 1fr 1fr auto;
     }
     
     &.native [aria-label="Address"]
