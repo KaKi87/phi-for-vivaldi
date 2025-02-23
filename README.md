@@ -138,3 +138,5 @@ DOM structure :
 
 © 2025 — KaKi87<br>
 Released under the [MIT license](https://opensource.org/license/mit).
+
+![](https://api.star-history.com/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline)
