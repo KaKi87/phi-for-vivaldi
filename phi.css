@@ -574,7 +574,26 @@
         {
             border-right: 1px solid var(--colorBg);
         }
-    
+
+        .tab-group.active:hover
+        {
+            .tab-header
+            {
+                padding-left: 0;
+                justify-content: center;
+            }
+
+            .favicon
+            {
+                display: none;
+            }
+
+            .close
+            {
+                margin: 0 !important;
+            }
+        }
+
         .tab-indicator::before
         {
             content: attr(title);
