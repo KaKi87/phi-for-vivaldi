@@ -47,7 +47,8 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
    - Right-click in the blank above the URL bar then "Customize Toolbar..." ;
    - Right-click the space items then "Remove from Toolbar" : left to the "Back" button, below the URL bar, below the panel buttons at the bottom ;
    - Then add, move and remove whatever you want, before clicking "Done" ;
-7. Subscribe to Theo.
+7. (Optionally) Star the [GitHub repo](https://github.com/KaKi87/phi-for-vivaldi) ;
+8. Subscribe to Theo.
 
 ##  :hammer_and_wrench: Customization
 
