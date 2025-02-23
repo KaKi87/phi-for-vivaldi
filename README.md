@@ -1,6 +1,6 @@
 # <img src="./icons/phi.svg" width="32" height="32"> Phi (/faɪ/)
 
-The ultimate vertical experience theme for Vivaldi, made with attention to details.
+The ultimate vertical experience mod for Vivaldi, made with attention to details.
 
 | ![](./screenshots/1_linux.webp)            | ![](./screenshots/2_mac.webp)          | ![](./screenshots/3_windows.webp)            |
 | ------------------------------------------ | -------------------------------------- | -------------------------------------------- |
@@ -9,36 +9,38 @@ The ultimate vertical experience theme for Vivaldi, made with attention to detai
 
 - Supported Vivaldi features : UI on left & right sides, theming from [themes.vivaldi.net](https://themes.vivaldi.net), toggle UI, panels, popups, split tabs ;
 - Enhanced Vivaldi features :
-  - Stacked tabs : displayed side by side with titles ;
+  - Stacked tabs : displayed inline with titles ;
   - Pinned tabs : displayed as icon-only grid ;
 - Unique Phi features :
-  - Address bar : expandable on focus ;
+  - Address bar : expandable on focus, optional, enabled by default ;
   - Compact mode : icon-only sidebar, implemented under the "panel toggle" command, keyboard shortcut assignable.
 
 ## :camera_flash: More screenshots​
 
-| ![](./screenshots/4_address_bar_focus.gif) | ![](./screenshots/5_stacked_tabs.gif)  | ![](./screenshots/6_pinned_stacked_tabs.gif) |
-| ------------------------------------------ | -------------------------------------- | -------------------------------------------- |
-| Address bar focus                          | Stacked tabs                           | Pinned tabs                                  |
-| ![](./screenshots/7_panels.gif)            | ![](./screenshots/8_right_side_UI.gif) | ![](./screenshots/9_themes.gif)              |
-| Panels                                     | Right side UI                          | Themed                                       |
-| ![](./screenshots/10_compact_mode.gif)     |                                        |                                              |
-| Compact mode                               |                                        |                                              |
+| ![](./screenshots/4_address_bar_focus.gif)  | ![](./screenshots/5_stacked_tabs.gif)  | ![](./screenshots/6_pinned_stacked_tabs.gif) |
+| ------------------------------------------- | -------------------------------------- | -------------------------------------------- |
+| **Address bar** expands on focus (optional) | **Stacked tabs** inline                | **Pinned tabs** icon-only                    |
+| ![](./screenshots/7_panels.gif)             | ![](./screenshots/8_right_side_UI.gif) | ![](./screenshots/9_themes.gif)              |
+| **Panels** at the bottom                    | **Right side UI** supported            | **Themes** supported                         |
+| ![](./screenshots/10_compact_mode.gif)      |                                        |                                              |
+| **Compact mode** as "panel toggle"          |                                        |                                              |
 
 ## :gear: Installation
 
-1. Create a folder to download the theme into ;
-2. Download the theme by right-clicking [here](https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/phi.css) then "Save Link As..." to the folder created in step 1 ;
+1. Create a folder to download the mod into ;
+2. Download the mod by right-clicking [here](https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/phi.css) then "Save Link As..." to the folder created in step 1 ;
 3. Go to `vivaldi:experiments` and check "Allow CSS modifications" ;
 4. Open Vivaldi settings ;
    - Under "General" ➔ "Startup" ➔ "Default Browser", uncheck "Check on Startup" ;
-   - Under "Appearance" ➔ "Window Appearance", check "Use Native Window" ;
+   - (Optionally) Under "Appearance" ➔ "Window Appearance", check "Use Native Window" ;
    - Under "Appearance" ➔ "Window Appearance" ➔ "Status Bar", select "Hide Status Bar" ;
    - Under "Appearance" ➔ "Custom UI Modifications", open the folder created in step 1 ;
    - Under "Tabs" ➔ "Tabs" ➔ "Tab Bar Position", select "Left" or "Right" ;
    - Under "Tabs" ➔ "Tab Display" ➔ "Tab Options", uncheck "Show Popup Thumbnails" ;
    - Under "Tabs" ➔ "Tab Features" ➔ "Tab Stacking", select "Compact" ;
+   - (Optionally) Under "Tabs" ➔ "Panel Position", select "Left" or "Right" ;
    - Under "Panel" ➔ "Panels" ➔ "Panel Options", check "Floating Panel" ;
+   - (Optionally) Under "Address Bar" ➔ "Extension Visibility", check "Expand Hidden Extensions to Drop-Down Menu" ;
    - (Optionally) Under "Keyboard" ➔ "View" ➔ "Panel Toggle", set a shortcut for compact mode ;
 5. Quit and relaunch Vivaldi ;
 6. Start tweaking the UI ;
@@ -49,7 +51,7 @@ The ultimate vertical experience theme for Vivaldi, made with attention to detai
 
 ##  :hammer_and_wrench: Customization
 
-While the theme aims to be compatible with as many native customization features as possible (especially sidebar position, side panel position & width, official themes, etc.), some had to be moved (e.g. sidebar width), but more were also added, these are located in the file you downloaded, above the source code :
+While the mod aims to be compatible with as many native customization features as possible (especially sidebar position, side panel position & width, themes, etc.), some had to be moved (e.g. sidebar width), but more were also added, these are located in the file you downloaded, above the source code :
 
 | Name                                     | Description                                                  | Value(s)                                  | Default |
 | ---------------------------------------- | ------------------------------------------------------------ | ----------------------------------------- | ------- |
@@ -68,17 +70,18 @@ While the theme aims to be compatible with as many native customization features
 
 <sup>(1)</sup> Unfortunately, the sidebar cannot be resized by drag-and-drop.<br>
 <sup>(2)</sup> Unfortunately, the toolbar cannot have more than one row (unless hard-coded to do so, trust me I tried hard).<br>
-<sup>(3)</sup> With the exception of (in)valid HTTP(S), obfuscated domain name, and loading indicators.<br>
+<sup>(3)</sup> With the exception of the following indicators : (in)valid HTTP(S), obfuscated domain name, loading.<br>
 <sup>(4)</sup> Reduces page content area. When enabled, recommended value is `10`. A lower value will reveal an unavoidable page content width inconsistency between normal & split tabs.<br>
 <sup>(5)</sup> When enabled, recommended value is `5`.
 
-Applying modifications require restarting Vivaldi.
+Applying modifications requires restarting Vivaldi.
 
 ## :wrench: Troubleshooting
 
 - Double check Vivaldi settings as per installation step 4 ;
 - Find potentially incompatible settings by comparing with an empty profile ;
-- You may disable Phi by setting tab bar position to top or bottom.
+- You may disable Phi by setting the tab bar position to top or bottom or toggling the tab bar off ;
+- Simultaneously using Phi with another CSS mod is not supported.
 
 ##  :handshake: Support
 
