@@ -578,7 +578,7 @@
             border-right: 1px solid var(--colorBg);
         }
 
-        .tab-group.active:hover
+        .tab-group.active:has(.close):hover
         {
             .tab-header
             {
