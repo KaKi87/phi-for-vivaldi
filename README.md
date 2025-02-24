@@ -84,7 +84,7 @@ Applying modifications requires restarting Vivaldi.
 - You may disable Phi by setting the tab bar position to top or bottom or toggling the tab bar off ;
 - Simultaneously using Phi with another CSS mod is not supported.
 
-##  :handshake: Support
+##  :handshake: Feedback & Support
 
 - [Issues](https://git.kaki87.net/KaKi87/phi-for-vivaldi/issues)
 - [GitHub Issues](https://github.com/KaKi87/phi-for-vivaldi/issues)
@@ -95,6 +95,32 @@ Applying modifications requires restarting Vivaldi.
 ## 🛜 Why "Phi" ?
 
 Phi (φ) is a greek letter, used (among other things) to designate angles, like (for example) [sextant](https://en.wikipedia.org/wiki/Sextant) (<a href="https://en.wikipedia.org/wiki/Arc_(web_browser)" target="_blank"><img src="./icons/arc.svg" width="32" height="32"></a>) & [compass](https://en.wikipedia.org/wiki/Compass) (<a href="https://en.wikipedia.org/wiki/Safari_(web_browser)" target="_blank"><img src="./icons/safari.svg" width="32" height="32"></a>) measurements for *navigation*.
+
+## :busts_in_silhouette: They use Phi
+
+Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/KaKi87/phi-for-vivaldi), submit your feedback with (optionally) a screenshot to showcase your setup here !
+
+<table><tr><td>
+
+![](./community_screenshots/Rohit685.svg)
+</td><td>
+
+![](./community_screenshots/sohamsarkar1993.webp)
+</td><td>
+
+![](./icons/you.webp)
+</td></tr><tr><td>
+
+[@Rohit685](https://github.com/Rohit685) — Stargazer
+</td><td>
+
+[@sohamsarkar1993](https://github.com/sohamsarkar1993) — Stargazer
+</td><td>
+
+You next ?
+</td></tr></table>
+
+[![](https://api.star-history.com/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline)](https://github.com/KaKi87/phi-for-vivaldi)
 
 ## :link: Related projects
 
@@ -142,5 +168,3 @@ DOM structure :
 
 © 2025 — KaKi87<br>
 Released under the [MIT license](https://opensource.org/license/mit).
-
-![](https://api.star-history.com/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline)
