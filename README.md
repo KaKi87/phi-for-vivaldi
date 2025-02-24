@@ -102,7 +102,7 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 
 <table><tr><td>
 
-![](./community_screenshots/Rohit685.svg)
+![](./community_screenshots/Rohit685.webp)
 </td><td>
 
 ![](./community_screenshots/sohamsarkar1993.webp)
