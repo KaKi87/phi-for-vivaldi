@@ -108,7 +108,7 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 ![](./community_screenshots/sohamsarkar1993.webp)
 </td><td>
 
-![](./icons/you.webp)
+![](./community_screenshots/MaxedPC08.webp)
 </td></tr><tr><td>
 
 [@Rohit685](https://github.com/Rohit685) — Stargazer
@@ -117,7 +117,7 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 [@sohamsarkar1993](https://github.com/sohamsarkar1993) — Stargazer
 </td><td>
 
-You next ?
+[@MaxedPC08](https://github.com/MaxedPC08) — Stargazer
 </td></tr></table>
 
 [![](https://api.star-history.com/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline)](https://github.com/KaKi87/phi-for-vivaldi)
