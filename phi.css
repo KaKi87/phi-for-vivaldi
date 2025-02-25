@@ -37,7 +37,7 @@
 
 .minimal-ui
 {
-    [aria-label="Address"],
+    .toolbar-mainbar[aria-label],
     #panels-container,
     &.linux #header,
     &.win #header
@@ -107,18 +107,18 @@
     }
     
     [name="WorkspaceButton"],
-    [aria-label="Address"],
+    .toolbar-mainbar[aria-label],
     #tabs-container,
     .toolbar-panel
     {
         grid-column: var(--phi--sidebar-order) / span 1;
     }
     
-    #webview-container       { grid-row: 1 / 5; }
-    [aria-label="Address"]   { grid-row: 1 / span 1; }
-    [name="WorkspaceButton"] { grid-row: 2 / span 1; }
-    #tabs-container          { grid-row: 3 / span 1; }
-    .toolbar-panel           { grid-row: 4 / span 1; }
+    #webview-container           { grid-row: 1 / 5; }
+    .toolbar-mainbar[aria-label] { grid-row: 1 / span 1; }
+    [name="WorkspaceButton"]     { grid-row: 2 / span 1; }
+    #tabs-container              { grid-row: 3 / span 1; }
+    .toolbar-panel               { grid-row: 4 / span 1; }
     
     .window-buttongroup
     {
@@ -153,13 +153,13 @@
         }
     }
     
-    [aria-label="Address"],
+    .toolbar-mainbar[aria-label],
     #tabs-container
     {
         padding: 0 5px !important;
     }
     
-    [aria-label="Address"]
+    .toolbar-mainbar[aria-label]
     {
         --phi--address-bar-row: 2;
         --phi--extensions-row: 3;
@@ -176,54 +176,54 @@
         grid-template-columns: repeat(var(--phi--toolbar-column-count), calc(100% / var(--phi--toolbar-column-count)));
     }
     
-    [aria-label="Address"]:has(.window-buttongroup)
+    .toolbar-mainbar[aria-label]:has(.window-buttongroup)
     {
         --phi--address-bar-row: 3;
         --phi--extensions-row: 4;
         grid-template-rows: 1fr 1fr 1fr auto;
     }
     
-    &.native [aria-label="Address"]
+    &.native .toolbar-mainbar[aria-label]
     {
         padding-top: 5px !important;
     }
     
-    &:has(#panel_switch) [aria-label="Address"]
+    &:has(#panel_switch) .toolbar-mainbar[aria-label]
     {
         display: none;
     }
     
     @container not style(--phi--address-bar-focused-width-increase: 0)
     {
-        [aria-label="Address"]
+        .toolbar-mainbar[aria-label]
         {
             --phi--address-bar-expansion-width: calc(var(--phi--address-bar-focused-width-increase) * 1px);
             --phi--toolbar-width: calc((100% - var(--phi--address-bar-expansion-width)) / var(--phi--toolbar-column-count));
             --phi--toolbar-columns: repeat(var(--phi--toolbar-column-count), var(--phi--toolbar-width));
         }
     
-        [aria-label="Address"]:has(#urlFieldInput:focus)
+        .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus)
         {
             width: calc(100% + var(--phi--address-bar-expansion-width));
         }
     
-        &.tabs-left:has(#urlFieldInput:focus) [aria-label="Address"]
+        &.tabs-left:has(#urlFieldInput:focus) .toolbar-mainbar[aria-label]
         {
             grid-template-columns: var(--phi--toolbar-columns) var(--phi--address-bar-expansion-width);
         }
 
         &.tabs-right
         {
-            &:has(#urlFieldInput:focus) [aria-label="Address"]
+            &:has(#urlFieldInput:focus) .toolbar-mainbar[aria-label]
             {
                 left: unset;
                 right: calc(100% - 10px);
                 grid-template-columns: var(--phi--address-bar-expansion-width) var(--phi--toolbar-columns);
             }
 
-            &.native [aria-label="Address"]:has(#urlFieldInput:focus) > *:first-child,
-            &:not(.native) [aria-label="Address"]:has(#urlFieldInput:focus) > *:is(.vivaldi, .button-toolbar):first-of-type,
-            [aria-label="Address"]:has(#urlFieldInput:focus) .window-buttongroup
+            &.native .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) > *:first-child,
+            &:not(.native) .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) > *:is(.vivaldi, .button-toolbar):first-of-type,
+            .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) .window-buttongroup
             {
                 grid-column-start: 2;
             }
