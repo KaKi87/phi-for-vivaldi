@@ -728,9 +728,10 @@
 
     @container not style(--phi--webview-border-radius: 0)
     {
-        .row-wrapper
+        .row-wrapper,
+        .tile .tiled
         {
-            border-radius: calc(var(--phi--webview-border-radius) * 1px);
+            border-radius: calc(var(--phi--webview-border-radius) * 1px) !important;
         }
     }
 }
