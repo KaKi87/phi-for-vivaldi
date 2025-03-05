@@ -728,7 +728,7 @@
 
     @container not style(--phi--webview-border-radius: 0)
     {
-        #webpage-stack
+        .row-wrapper
         {
             border-radius: calc(var(--phi--webview-border-radius) * 1px);
         }
