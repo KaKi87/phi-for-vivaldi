@@ -269,7 +269,7 @@
     {
         &:not(:has(.button-popup:not(.ToolbarButtonPopup-DefaultStyles))) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child
         {
-            & > *:not(.UrlBar-UrlObfuscationWarning, [class^="pageload"]),
+            & > *:not(.UrlBar-UrlObfuscationWarning, [class^="pageload"], .BookmarkButton--Active),
             &:has(.progressing) .UrlBar-UrlObfuscationWarning
             {
                 display: none;
