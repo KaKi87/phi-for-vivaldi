@@ -32,7 +32,7 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
 3. Go to `vivaldi:experiments` and check "Allow CSS modifications" ;
 4. Open Vivaldi settings ;
    - Under "General" ➔ "Startup" ➔ "Default Browser", uncheck "Check on Startup" ;
-   - (Optionally) Under "Appearance" ➔ "Window Appearance", check "Use Native Window" ;
+   - On Mac (optionally otherwise), under "Appearance" ➔ "Window Appearance", check "Use Native Window" ;
    - Under "Appearance" ➔ "Window Appearance" ➔ "Status Bar", select "Hide Status Bar" ;
    - Under "Appearance" ➔ "Custom UI Modifications", open the folder created in step 1 ;
    - Under "Tabs" ➔ "Tabs" ➔ "Tab Bar Position", select "Left" or "Right" ;
