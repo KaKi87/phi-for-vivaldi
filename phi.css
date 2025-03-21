@@ -178,11 +178,28 @@
     
     .toolbar-mainbar[aria-label]:has(.window-buttongroup)
     {
+        --phi--window-controls-row-height: 1fr;
         --phi--address-bar-row: 3;
         --phi--extensions-row: 4;
-        grid-template-rows: 1fr 1fr 1fr auto;
+        grid-template-rows: var(--phi--window-controls-row-height) 1fr 1fr auto;
+    }
+
+    &.mac.tabs-left .toolbar-mainbar[aria-label]:has(.window-buttongroup)
+    {
+        --phi--window-controls-row-height: 40px;
+    }
+
+    &.mac.tabs-right .toolbar-mainbar[aria-label]:has(.window-buttongroup)
+    {
+        --phi--window-controls-row-height: 0;
+    }
+
+    &.mac .window-buttongroup
+    {
+        height: var(--phi--window-controls-row-height);
     }
     
+    &.mac.tabs-right .toolbar-mainbar[aria-label],
     &.native .toolbar-mainbar[aria-label]
     {
         padding-top: 5px !important;
@@ -296,6 +313,12 @@
     .pageload-ticker
     {
         padding: 0 4px 0 0 !important;
+    }
+
+    &.mac .OmniDropdown
+    {
+        top: 105%;
+        padding-top: 0;
     }
     
     .toolbar-extensions
