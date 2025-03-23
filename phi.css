@@ -315,7 +315,7 @@
         padding: 0 4px 0 0 !important;
     }
 
-    &.mac .OmniDropdown
+    .OmniDropdown
     {
         top: 105%;
         padding-top: 0;
