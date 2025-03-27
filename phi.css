@@ -24,6 +24,7 @@
     --phi--address-bar-focused-width-increase: 200;
     --phi--is-address-bar-focused-height-increase: 1;
     --phi--address-bar-font-size-decrease: 1;
+    --phi--is-address-bar-unfocused-partial: 0;
     --phi--is-address-bar-unfocused-hide-icons: 1;
     --phi--is-address-bar-focused-hide-icons: 0;
     --phi--pinned-column-count: 4;
@@ -279,6 +280,14 @@
         .UrlBar-AddressField:has(#urlFieldInput:focus)
         {
             grid-row-end: span 2;
+        }
+    }
+
+    @container style(--phi--is-address-bar-unfocused-partial: 1)
+    {
+        .UrlFragment-LinkWrapper > .UrlFragment--Lowlight
+        {
+            display: none;
         }
     }
     
