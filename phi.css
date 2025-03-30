@@ -51,7 +51,7 @@
 {
     .separator-wsbutton,
     .ContentBlocker-Control,
-    .profile-popup,
+    &:not(.mac) .profile-popup,
     .is-pinned .title,
     .tab-group .title:not(:has(.tab-title-edit)),
     #tabs-tabbar-container .SlideBar,
