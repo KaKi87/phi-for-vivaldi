@@ -123,7 +123,6 @@
     
     .window-buttongroup
     {
-        -webkit-app-region: drag;
         position: relative !important;
         left: unset !important;
         right: unset !important;
@@ -175,6 +174,8 @@
         display: grid;
         grid-template-rows: 1fr 1fr auto;
         grid-template-columns: repeat(var(--phi--toolbar-column-count), calc(100% / var(--phi--toolbar-column-count)));
+
+        -webkit-app-region: drag;
     }
     
     .toolbar-mainbar[aria-label]:has(.window-buttongroup)
@@ -193,6 +194,28 @@
     &.mac.tabs-right .toolbar-mainbar[aria-label]:has(.window-buttongroup)
     {
         --phi--window-controls-row-height: 0;
+    }
+
+    &.mac.tabs-right:not(.native)
+    {
+        &::after
+        {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 19px;
+            left: 21px;
+            width: 52px;
+            height: 13px;
+            background: white;
+            border-radius: 6.5px;
+            outline: 5px solid white;
+        }
+
+        &.isblurred::after
+        {
+            opacity: 0.1;
+        }
     }
 
     &.mac .window-buttongroup
@@ -240,7 +263,7 @@
             }
 
             &.native .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) > *:first-child,
-            &:not(.native) .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) > *:is(.vivaldi, .button-toolbar):first-of-type,
+            &:not(.native) .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) .window-buttongroup + *,
             .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) .window-buttongroup
             {
                 grid-column-start: 2;
