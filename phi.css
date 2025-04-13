@@ -30,6 +30,8 @@
     --phi--pinned-column-count: 4;
     --phi--webview-border: 0;
     --phi--webview-border-radius: 0;
+    --phi--webview-shadow-size: 0;
+    --phi--webview-shadow-color: 0, 0, 0, 0.25;
 }
 
 /*┌───────────┐
@@ -787,6 +789,15 @@
         .tiled.webpageview
         {
             border-radius: calc(var(--phi--webview-border-radius) * 1px) !important;
+        }
+    }
+
+    @container not style(--phi--webview-shadow-size: 0)
+    {
+        #webpage-stack:not(:has(.tiled)),
+        .tiled.webpageview
+        {
+            box-shadow: 0 0 calc(var(--phi--webview-shadow-size) * 1px) rgba(var(--phi--webview-shadow-color));
         }
     }
 }
