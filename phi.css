@@ -117,7 +117,7 @@
         grid-column: var(--phi--sidebar-order) / span 1;
     }
 
-    #webview-container           { grid-row: 1 / 5; }
+    #webview-container           { grid-row: 1 /     -1; }
     .toolbar-mainbar[aria-label] { grid-row: 1 / span 1; }
     [name="WorkspaceButton"]     { grid-row: 2 / span 1; }
     #tabs-container              { grid-row: 3 / span 1; }
