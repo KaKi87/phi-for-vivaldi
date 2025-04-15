@@ -33,7 +33,7 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
 4. Open Vivaldi settings ;
    - Under "General" ➔ "Startup" ➔ "Default Browser", uncheck "Check on Startup" ;
    - On Mac (optionally otherwise), under "Appearance" ➔ "Window Appearance", check "Use Native Window" ;
-   - Under "Appearance" ➔ "Window Appearance" ➔ "Status Bar", select "Hide Status Bar" ;
+   - Under "Appearance" ➔ "Window Appearance" ➔ "Status Bar", select "Status Info Overlay" or "Hide Status Bar" ;
    - Under "Appearance" ➔ "Custom UI Modifications", open the folder created in step 1 ;
    - Under "Tabs" ➔ "Tabs" ➔ "Tab Bar Position", select "Left" or "Right" ;
    - Under "Tabs" ➔ "Tab Display" ➔ "Tab Options", uncheck "Show Popup Thumbnails" ;
