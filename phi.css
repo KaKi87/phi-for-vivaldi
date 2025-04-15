@@ -794,7 +794,7 @@
 
     @container not style(--phi--webview-shadow-size: 0)
     {
-        #webpage-stack:not(:has(.tiled)),
+        #webpage-stack:not(:has(.tiled.active)),
         .tiled.webpageview:not(.active)
         {
             box-shadow: 0 0 calc(var(--phi--webview-shadow-size) * 1px) rgba(var(--phi--webview-shadow-color));
