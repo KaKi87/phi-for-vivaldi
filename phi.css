@@ -253,35 +253,38 @@
             --phi__toolbar-columns: repeat(var(--phi--toolbar-column-count), var(--phi__toolbar-width));
         }
 
-        .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus)
+        &:has(#urlFieldInput:focus)
         {
-            width: calc(100% + var(--phi__address-bar-expansion-width));
-        }
-
-        &.tabs-left:has(#urlFieldInput:focus) .toolbar-mainbar[aria-label]
-        {
-            grid-template-columns: var(--phi__toolbar-columns) var(--phi__address-bar-expansion-width);
-        }
-
-        &.tabs-right
-        {
-            &:has(#urlFieldInput:focus) .toolbar-mainbar[aria-label]
+            .toolbar-mainbar[aria-label]
             {
-                left: unset;
-                right: calc(100% - 10px);
-                grid-template-columns: var(--phi__address-bar-expansion-width) var(--phi__toolbar-columns);
+                width: calc(100% + var(--phi__address-bar-expansion-width));
+            }
+    
+            &.tabs-left .toolbar-mainbar[aria-label]
+            {
+                grid-template-columns: var(--phi__toolbar-columns) var(--phi__address-bar-expansion-width);
             }
 
-            &.native .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) > *:first-child,
-            &:not(.native) .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) .window-buttongroup + *,
-            .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) .window-buttongroup
+            &.tabs-right
             {
-                grid-column-start: 2;
-            }
-
-            &:has(#urlFieldInput:focus) .toolbar-extensions
-            {
-                grid-column: 2 / span var(--phi--toolbar-column-count);
+                .toolbar-mainbar[aria-label]
+                {
+                    left: unset;
+                    right: calc(100% - 10px);
+                    grid-template-columns: var(--phi__address-bar-expansion-width) var(--phi__toolbar-columns);
+                }
+    
+                &.native .toolbar-mainbar[aria-label] > *:first-child,
+                &:not(.native) .toolbar-mainbar[aria-label] .window-buttongroup + *,
+                .toolbar-mainbar[aria-label] .window-buttongroup
+                {
+                    grid-column-start: 2;
+                }
+    
+                .toolbar-extensions
+                {
+                    grid-column: 2 / span var(--phi--toolbar-column-count);
+                }
             }
         }
     }
