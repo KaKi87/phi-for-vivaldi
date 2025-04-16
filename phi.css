@@ -51,6 +51,8 @@
 
 #browser:not(.fullscreen, .minimal-ui, .popup, .tabs-top, .tabs-bottom, .break-mode, .tabs-off)
 {
+    &:has(#panel_switch) { --phi___is-compact-mode: 1; }
+
     .separator-wsbutton,
     .ContentBlocker-Control,
     &:not(.mac) .profile-popup,
@@ -94,14 +96,17 @@
         --phi__page-order: 1;
     }
 
-    &.tabs-left:has(#panel_switch)
+    @container style(--phi___is-compact-mode: 1)
     {
-        grid-template-columns: calc(var(--phi--compact-sidebar-width) * 1px) auto;
-    }
-
-    &.tabs-right:has(#panel_switch)
-    {
-        grid-template-columns: auto calc(var(--phi--compact-sidebar-width) * 1px);
+        &.tabs-left
+        {
+            grid-template-columns: calc(var(--phi--compact-sidebar-width) * 1px) auto;
+        }
+    
+        &.tabs-right
+        {
+            grid-template-columns: auto calc(var(--phi--compact-sidebar-width) * 1px);
+        }
     }
 
     #webview-container
@@ -231,9 +236,12 @@
         padding-top: 5px !important;
     }
 
-    &:has(#panel_switch) .toolbar-mainbar[aria-label]
+    @container style(--phi___is-compact-mode: 1)
     {
-        display: none;
+        .toolbar-mainbar[aria-label]
+        {
+            display: none;
+        }
     }
 
     @container not style(--phi--address-bar-focused-width-increase: 0)
@@ -373,9 +381,12 @@
         margin: 0 5px 5px 5px !important;
     }
 
-    &:has(#panel_switch) [name="WorkspaceButton"] .button-title
+    @container style(--phi___is-compact-mode: 1)
     {
-        display: none;
+        [name="WorkspaceButton"] .button-title
+        {
+            display: none;
+        }
     }
 
     #panels-container:has(.panel-collapse-guard[aria-hidden="false"])
@@ -406,7 +417,7 @@
         }
     }
 
-    &:has(#panel_switch)
+    @container style(--phi___is-compact-mode: 1)
     {
         #panels-container:not(:has(.panel-collapse-guard)),
         #panels-container:has(.panel-collapse-guard[aria-hidden="true"])
@@ -460,9 +471,12 @@
         width: 100%;
     }
 
-    &:has(#panel_switch) .tab
+    @container style(--phi___is-compact-mode: 1)
     {
-        flex: 1;
+        .tab
+        {
+            flex: 1;
+        }
     }
 
     .tab-group-indicator
@@ -472,9 +486,12 @@
         padding: 0;
     }
 
-    &:has(#panel_switch) .tab-group-indicator
+    @container style(--phi___is-compact-mode: 1)
     {
-        display: none;
+        .tab-group-indicator
+        {
+            display: none;
+        }
     }
 
     .svg-tab-selection
@@ -488,15 +505,18 @@
         padding-left: 10px !important;
     }
 
-    &:has(#panel_switch) .tab .favicon
+    @container style(--phi___is-compact-mode: 1)
     {
-        margin: 0;
-    }
-
-    &:has(#panel_switch) .tab .title,
-    &:has(#panel_switch) .tab .close
-    {
-        display: none;
+        .tab .favicon
+        {
+            margin: 0;
+        }
+    
+        .tab .title,
+        .tab .close
+        {
+            display: none;
+        }
     }
 
     .tab-indicator
@@ -515,70 +535,76 @@
         border-top-right-radius: var(--currentRadius);
     }
 
-    &:has(#panel_switch) .tab-header
+    @container style(--phi___is-compact-mode: 1)
     {
-        padding-left: 0;
-        justify-content: center;
-    }
-
-    &:not(:has(#panel_switch)) .is-pinned
-    {
-        .tab-wrapper
-        {
-            align-self: end;
-            grid-column: span 1;
-            aspect-ratio: 1;
-            flex-direction: column-reverse;
-            background-color: var(--colorAccentBgAlphaHeavy);
-        }
-
-        .group
-        {
-            display: grid;
-        }
-
-        .tab,
-        .tab-group-indicator
-        {
-            grid-column: 1 / -1;
-        }
-
-        .tab
-        {
-            grid-row: 1 / 3;
-            align-items: center;
-        }
-
-        .tab-group-indicator
-        {
-            grid-row: 1 / 2;
-            column-gap: 2px;
-        }
-
         .tab-header
         {
-            flex: 1 !important;
-            padding: 0;
-            width: 100%;
+            padding-left: 0;
             justify-content: center;
         }
+    }
 
-        .button-badge
+    @container not style(--phi___is-compact-mode: 1)
+    {
+        .is-pinned
         {
-            top: unset !important;
-            right: 2px !important;
-            bottom: 2px !important;
-            left: unset !important;
-        }
-
-        .tab-indicator:not(.active):not(:hover)
-        {
-            background-color: var(--colorHighlightFgAlpha) !important;
-        }
-
-        .tab-indicator.active
-        {
-            background-color: transparent !important;
+            .tab-wrapper
+            {
+                align-self: end;
+                grid-column: span 1;
+                aspect-ratio: 1;
+                flex-direction: column-reverse;
+                background-color: var(--colorAccentBgAlphaHeavy);
+            }
+    
+            .group
+            {
+                display: grid;
+            }
+    
+            .tab,
+            .tab-group-indicator
+            {
+                grid-column: 1 / -1;
+            }
+    
+            .tab
+            {
+                grid-row: 1 / 3;
+                align-items: center;
+            }
+    
+            .tab-group-indicator
+            {
+                grid-row: 1 / 2;
+                column-gap: 2px;
+            }
+    
+            .tab-header
+            {
+                flex: 1 !important;
+                padding: 0;
+                width: 100%;
+                justify-content: center;
+            }
+    
+            .button-badge
+            {
+                top: unset !important;
+                right: 2px !important;
+                bottom: 2px !important;
+                left: unset !important;
+            }
+    
+            .tab-indicator:not(.active):not(:hover)
+            {
+                background-color: var(--colorHighlightFgAlpha) !important;
+            }
+    
+            .tab-indicator.active
+            {
+                background-color: transparent !important;
+            }
         }
     }
 
@@ -707,9 +733,12 @@
         left: 0 !important;
     }
 
-    &:has(#panel_switch) .sync-and-trash-container
+    @container style(--phi___is-compact-mode: 1)
     {
-        display: none;
+        .sync-and-trash-container
+        {
+            display: none;
+        }
     }
 
     #webview-container
