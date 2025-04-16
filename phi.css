@@ -83,15 +83,15 @@
     &.tabs-left
     {
         grid-template-columns: calc(var(--phi--sidebar-width) * 1px) auto;
-        --phi--sidebar-order: 1;
-        --phi--page-order: 2;
+        --phi__sidebar-order: 1;
+        --phi__page-order: 2;
     }
 
     &.tabs-right
     {
         grid-template-columns: auto calc(var(--phi--sidebar-width) * 1px);
-        --phi--sidebar-order: 2;
-        --phi--page-order: 1;
+        --phi__sidebar-order: 2;
+        --phi__page-order: 1;
     }
 
     &.tabs-left:has(#panel_switch)
@@ -106,7 +106,7 @@
 
     #webview-container
     {
-        grid-column: var(--phi--page-order) / span 1;
+        grid-column: var(--phi__page-order) / span 1;
     }
 
     [name="WorkspaceButton"],
@@ -114,7 +114,7 @@
     #tabs-container,
     .toolbar-panel
     {
-        grid-column: var(--phi--sidebar-order) / span 1;
+        grid-column: var(--phi__sidebar-order) / span 1;
     }
 
     #webview-container           { grid-row: 1 /     -1; }
@@ -163,12 +163,12 @@
 
     .toolbar-mainbar[aria-label]
     {
-        --phi--address-bar-row: 2;
-        --phi--extensions-row: 3;
+        --phi__address-bar-row: 2;
+        --phi__extensions-row: 3;
         &:has(.window-buttongroup)
         {
-            --phi--address-bar-row: 3;
-            --phi--extensions-row: 4;
+            --phi__address-bar-row: 3;
+            --phi__extensions-row: 4;
         }
 
         width: 100%;
@@ -182,20 +182,20 @@
 
     .toolbar-mainbar[aria-label]:has(.window-buttongroup)
     {
-        --phi--window-controls-row-height: 1fr;
-        --phi--address-bar-row: 3;
-        --phi--extensions-row: 4;
-        grid-template-rows: var(--phi--window-controls-row-height) 1fr 1fr auto;
+        --phi__window-controls-row-height: 1fr;
+        --phi__address-bar-row: 3;
+        --phi__extensions-row: 4;
+        grid-template-rows: var(--phi__window-controls-row-height) 1fr 1fr auto;
     }
 
     &.mac.tabs-left .toolbar-mainbar[aria-label]:has(.window-buttongroup)
     {
-        --phi--window-controls-row-height: 40px;
+        --phi__window-controls-row-height: 40px;
     }
 
     &.mac.tabs-right .toolbar-mainbar[aria-label]:has(.window-buttongroup)
     {
-        --phi--window-controls-row-height: 0;
+        --phi__window-controls-row-height: 0;
     }
 
     &.mac.tabs-right:not(.native)
@@ -222,7 +222,7 @@
 
     &.mac .window-buttongroup
     {
-        height: var(--phi--window-controls-row-height);
+        height: var(--phi__window-controls-row-height);
     }
 
     &.mac.tabs-right .toolbar-mainbar[aria-label],
@@ -240,19 +240,19 @@
     {
         .toolbar-mainbar[aria-label]
         {
-            --phi--address-bar-expansion-width: calc(var(--phi--address-bar-focused-width-increase) * 1px);
-            --phi--toolbar-width: calc((100% - var(--phi--address-bar-expansion-width)) / var(--phi--toolbar-column-count));
-            --phi--toolbar-columns: repeat(var(--phi--toolbar-column-count), var(--phi--toolbar-width));
+            --phi__address-bar-expansion-width: calc(var(--phi--address-bar-focused-width-increase) * 1px);
+            --phi__toolbar-width: calc((100% - var(--phi__address-bar-expansion-width)) / var(--phi--toolbar-column-count));
+            --phi__toolbar-columns: repeat(var(--phi--toolbar-column-count), var(--phi__toolbar-width));
         }
 
         .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus)
         {
-            width: calc(100% + var(--phi--address-bar-expansion-width));
+            width: calc(100% + var(--phi__address-bar-expansion-width));
         }
 
         &.tabs-left:has(#urlFieldInput:focus) .toolbar-mainbar[aria-label]
         {
-            grid-template-columns: var(--phi--toolbar-columns) var(--phi--address-bar-expansion-width);
+            grid-template-columns: var(--phi__toolbar-columns) var(--phi__address-bar-expansion-width);
         }
 
         &.tabs-right
@@ -261,7 +261,7 @@
             {
                 left: unset;
                 right: calc(100% - 10px);
-                grid-template-columns: var(--phi--address-bar-expansion-width) var(--phi--toolbar-columns);
+                grid-template-columns: var(--phi__address-bar-expansion-width) var(--phi__toolbar-columns);
             }
 
             &.native .toolbar-mainbar[aria-label]:has(#urlFieldInput:focus) > *:first-child,
@@ -287,7 +287,7 @@
 
     .UrlBar-AddressField
     {
-        grid-row-start: var(--phi--address-bar-row);
+        grid-row-start: var(--phi__address-bar-row);
         z-index: 2;
         margin: 0;
         font-size: calc(13px - calc(var(--phi--address-bar-font-size-decrease) * 1px));
@@ -357,7 +357,7 @@
 
     .toolbar-extensions
     {
-        grid-row: var(--phi--extensions-row) / span 1;
+        grid-row: var(--phi__extensions-row) / span 1;
         flex-wrap: wrap;
     }
 
@@ -739,7 +739,7 @@
         #webview-container,
         #webpage-stack > .tiled
         {
-            --phi--border: calc(var(--phi--webview-border) * 1px);
+            --phi__border: calc(var(--phi--webview-border) * 1px);
             border: 0 solid transparent;
         }
 
@@ -747,39 +747,39 @@
         {
             #webview-container
             {
-                border-top-width: var(--phi--border);
-                border-bottom-width: var(--phi--border);
+                border-top-width: var(--phi__border);
+                border-bottom-width: var(--phi__border);
             }
 
             &.tabs-left #webview-container
             {
-                border-left-width: calc(var(--phi--border) - 5px);
-                border-right-width: var(--phi--border);
+                border-left-width: calc(var(--phi__border) - 5px);
+                border-right-width: var(--phi__border);
             }
 
             &.tabs-right #webview-container
             {
-                border-left-width: var(--phi--border);
-                border-right-width: calc(var(--phi--border) - 5px);
+                border-left-width: var(--phi__border);
+                border-right-width: calc(var(--phi__border) - 5px);
             }
         }
 
         #webpage-stack > .tiled
         {
-            border-top-width: calc(var(--phi--border) - 5px);
-            border-bottom-width: calc(var(--phi--border) - 5px);
+            border-top-width: calc(var(--phi__border) - 5px);
+            border-bottom-width: calc(var(--phi__border) - 5px);
         }
 
         &.tabs-left #webpage-stack > .tiled
         {
-            border-left-width: calc(var(--phi--border) - 10px);
-            border-right-width: calc(var(--phi--border) - 5px);
+            border-left-width: calc(var(--phi__border) - 10px);
+            border-right-width: calc(var(--phi__border) - 5px);
         }
 
         &.tabs-right #webpage-stack > .tiled
         {
-            border-left-width: calc(var(--phi--border) - 5px);
-            border-right-width: calc(var(--phi--border) - 10px);
+            border-left-width: calc(var(--phi__border) - 5px);
+            border-right-width: calc(var(--phi__border) - 10px);
         }
     }
 
