@@ -52,6 +52,9 @@
 #browser:not(.fullscreen, .minimal-ui, .popup, .tabs-top, .tabs-bottom, .break-mode, .tabs-off)
 {
     &:has(#panel_switch) { --phi___is-compact-mode: 1; }
+    &:has(.panel-collapse-guard[aria-hidden="false"]) { --phi___is-panel-open: 1; }
+    &:not(:has(.panel-collapse-guard)), &:has(.panel-collapse-guard[aria-hidden="true"]) { --phi___is-panel-closed: 1; }
+    
 
     .separator-wsbutton,
     .ContentBlocker-Control,
@@ -391,16 +394,21 @@
         }
     }
 
-    #panels-container:has(.panel-collapse-guard[aria-hidden="false"])
+    @container style(--phi___is-panel-open: 1)
     {
-        position: absolute !important;
-        z-index: 4 !important;
+        #panels-container
+        {
+            position: absolute !important;
+            z-index: 4 !important;
+        }
     }
 
-    #panels-container:not(:has(.panel-collapse-guard)),
-    #panels-container:has(.panel-collapse-guard[aria-hidden="true"])
+    @container style(--phi___is-panel-closed: 1)
     {
-        display: contents;
+        #panels-container
+        {
+            display: contents;
+        }
 
         .toolbar-panel
         {
@@ -419,15 +427,11 @@
         }
     }
 
-    @container style(--phi___is-compact-mode: 1)
+    @container style(--phi___is-compact-mode: 1) and style(--phi___is-panel-open: 1)
     {
-        #panels-container:not(:has(.panel-collapse-guard)),
-        #panels-container:has(.panel-collapse-guard[aria-hidden="true"])
+        .toolbar-panel
         {
-            .toolbar-panel
-            {
-                justify-content: center;
-            }
+            justify-content: center;
         }
     }
 
