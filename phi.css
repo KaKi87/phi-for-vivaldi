@@ -57,7 +57,6 @@
     &:has(#panel_switch) { --phi___is-compact-mode: 1; }
     &:has(.panel-collapse-guard[aria-hidden="false"]) { --phi___is-panel-open: 1; }
     &:not(:has(.panel-collapse-guard)), &:has(.panel-collapse-guard[aria-hidden="true"]) { --phi___is-panel-closed: 1; }
-    
 
     .separator-wsbutton,
     .ContentBlocker-Control,
