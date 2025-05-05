@@ -803,13 +803,13 @@
                 border-bottom-width: var(--phi__border);
             }
 
-            &.tabs-left #webview-container
+            #browser.tabs-left #webview-container
             {
                 border-left-width: calc(var(--phi__border) - 5px);
                 border-right-width: var(--phi__border);
             }
 
-            &.tabs-right #webview-container
+            #browser.tabs-right #webview-container
             {
                 border-left-width: var(--phi__border);
                 border-right-width: calc(var(--phi__border) - 5px);
