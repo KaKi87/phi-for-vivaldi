@@ -2,8 +2,8 @@
 
 The ultimate vertical experience mod for Vivaldi, made with attention to details.
 
-| ![](./screenshots/1_linux.webp)            | ![](./screenshots/2_mac.webp)          | ![](./screenshots/3_windows.webp)            |
-| ------------------------------------------ | -------------------------------------- | -------------------------------------------- |
+| ![](./screenshots/1_linux.webp) | ![](./screenshots/2_mac.webp) | ![](./screenshots/3_windows.webp) |
+|---------------------------------|-------------------------------|-----------------------------------|
 
 ## :sparkles: Features
 
@@ -18,7 +18,7 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
 ## :camera_flash: More screenshots​
 
 | ![](./screenshots/4_address_bar_focus.gif)  | ![](./screenshots/5_stacked_tabs.gif)  | ![](./screenshots/6_pinned_stacked_tabs.gif) |
-| ------------------------------------------- | -------------------------------------- | -------------------------------------------- |
+|---------------------------------------------|----------------------------------------|----------------------------------------------|
 | **Address bar** expands on focus (optional) | **Stacked tabs** inline                | **Pinned tabs** icon-only                    |
 | ![](./screenshots/7_panels.gif)             | ![](./screenshots/8_right_side_UI.gif) | ![](./screenshots/9_themes.gif)              |
 | **Panels** at the bottom                    | **Right side UI** supported            | **Themes** supported                         |
@@ -54,26 +54,31 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
 
 While the mod aims to be compatible with as many native customization features as possible (especially sidebar position, side panel position & width, themes, etc.), some had to be moved (e.g. sidebar width), but more were also added, these are located in the file you downloaded, above the source code :
 
-| Name                                     | Description                                                  | Value(s)                                  | Default |
-| ---------------------------------------- | ------------------------------------------------------------ | ----------------------------------------- | ------- |
-| `sidebar-width`                          | Amount of horizontal space for the area containing the whole UI.<sup>(1)</sup> | Any number (in pixels)                    | `210`   |
-| `compact-sidebar-width`                  | Amount of horizontal space for the area containing the whole UI in compact mode.<sup>(1)</sup> | Any number (in pixels)                    | `50`    |
-| `is-phi-menu-icon`                       | Whether to show Phi's logo in place of Vivaldi's as menu button. | `1` = enable<br />`0` = disable           | `1`     |
-| `toolbar-column-count`                   | Number of toolbar buttons above the URL bar.<sup>(2)</sup>   | Any quantity                              | `5`     |
-| `address-bar-focused-width-increase`     | Enlarge the URL bar over the page content when focused.      | Any number (in pixels)<br />`0` = disable | `200`   |
-| `is-address-bar-focused-height-increase` | Whether to enlarge the URL bar over the extensions row below it when focused. | `1` = enable<br />`0` = disable           | `1`     |
-| `address-bar-font-size-decrease`         | Lower the character size of the URL to see more of it.       | Any number (in pixels)<br />`0` = disable | `1`     |
-| `is-address-bar-unfocused-hide-icons`    | Whether to hide icons<sup>(3)</sup> in the URL bar when not focused to see more of the URL. | `1` = enable<br />`0` = disable           | `1`     |
-| `is-address-bar-focused-hide-icons`      | Whether to hide icons<sup>(3)</sup> in the URL bar when focused to see more of the URL. | `1` = enable<br />`0` = disable           | `0`     |
-| `pinned-column-count`                    | Number of pinned tabs per row.                               | Any quantity                              | `4`     |
-| `webview-border`                         | Amount of space around the page content.<sup>(4)</sup>       | Any number (in pixels)<br />`0` = disable | `0`     |
-| `webview-border-radius`                  | Round the corners of the page content.<sup>(5)</sup>         | Any quantity<br />`0` = disable           | `0`     |
+| Name                                     | Description                                                                                    | Value(s)                                | Default         |
+|------------------------------------------|------------------------------------------------------------------------------------------------|-----------------------------------------|-----------------|
+| `sidebar-width`                          | Amount of horizontal space for the area containing the whole UI.<sup>(1)</sup>                 | Any number (in pixels)                  | `210`           |
+| `compact-sidebar-width`                  | Amount of horizontal space for the area containing the whole UI in compact mode.<sup>(1)</sup> | Any number (in pixels)                  | `50`            |
+| `is-phi-menu-icon`                       | Whether to show Phi's logo in place of Vivaldi's as menu button.                               | `1` = enable<br>`0` = disable           | `1`             |
+| `toolbar-column-count`                   | Number of toolbar buttons above the URL bar.<sup>(2)</sup>                                     | Any quantity                            | `5`             |
+| `address-bar-focused-width-increase`     | Enlarge the URL bar over the page content when focused.                                        | Any number (in pixels)<br>`0` = disable | `200`           |
+| `address-bar-font-size-decrease`         | Lower the character size of the URL to see more of it.                                         | Any number (in pixels)<br>`0` = disable | `1`             |
+| `is-address-bar-focused-height-increase` | Whether to enlarge the URL bar over the extensions row below it when focused.                  | `1` = enable<br>`0` = disable           | `1`             |
+| `is-address-bar-unfocused-partial`       | Whether to hide "unimportant"<sup>(3)</sup> parts of the URL when the bar is not focused.      | `1` = enable<br>`0` = disable           | `0`             |
+| `is-address-bar-unfocused-hide-icons`    | Whether to hide icons<sup>(4)</sup> in the URL bar when not focused to see more of the URL.    | `1` = enable<br>`0` = disable           | `1`             |
+| `is-address-bar-focused-hide-icons`      | Whether to hide icons<sup>(4)</sup> in the URL bar when focused to see more of the URL.        | `1` = enable<br>`0` = disable           | `0`             |
+| `pinned-column-count`                    | Number of pinned tabs per row.                                                                 | Any quantity                            | `4`             |
+| `webview-border`                         | Amount of space around the page content.<sup>(5)</sup>                                         | Any number (in pixels)<br>`0` = disable | `0`             |
+| `webview-border-radius`                  | Round the corners of the page content.<sup>(6)</sup>                                           | Any quantity<br>`0` = disable           | `0`             |
+| `webview-shadow-size`                    | Amount of shadow around the page content.<sup>(7)</sup>                                        | Any number (in pixels)<br>`0` = disable | `0`             |
+| `webview-shadow-color`                   | Color of shadow around the page content.                                                       | Comma-separated RGBA values             | `0, 0, 0, 0.25` |
 
 <sup>(1)</sup> Unfortunately, the sidebar cannot be resized by drag-and-drop.<br>
 <sup>(2)</sup> Unfortunately, the toolbar cannot have more than one row (unless hard-coded to do so, trust me I tried hard).<br>
-<sup>(3)</sup> With the exception of the following indicators : (in)valid HTTP(S), obfuscated domain name, loading.<br>
-<sup>(4)</sup> Reduces page content area. When enabled, recommended value is `10`. A lower value will reveal an unavoidable page content width inconsistency between normal & split tabs.<br>
-<sup>(5)</sup> When enabled, recommended value is `5`.
+<sup>(3)</sup> Path and query parameters.<br>
+<sup>(4)</sup> Except the following indicators : (in)valid HTTP(S), obfuscated domain name, loading.<br>
+<sup>(5)</sup> Reduces page content area. When enabled, recommended value is `10`. A lower value will reveal an unavoidable page content width inconsistency between normal & split tabs.<br>
+<sup>(6)</sup> When enabled, recommended value is `5`.<br>
+<sup>(7)</sup> To copy Zen Browser, set value to `10`.
 
 Applying modifications requires restarting Vivaldi.
 
