@@ -442,7 +442,7 @@
         }
     }
 
-    @container style(--phi___is-compact-mode: 1) and style(--phi___is-panel-open: 1)
+    @container style(--phi___is-compact-mode: 1) and style(--phi___is-panel-closed: 1)
     {
         .toolbar-panel
         {
