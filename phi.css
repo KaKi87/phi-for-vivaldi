@@ -494,14 +494,6 @@
         width: 100%;
     }
 
-    @container style(--phi___is-compact-mode: 1)
-    {
-        .tab
-        {
-            flex: 1;
-        }
-    }
-
     .tab-group-indicator
     {
         position: relative;
@@ -661,6 +653,14 @@
             flex: 0 0 28px;
             border-top-right-radius: 0 !important;
             border-bottom-right-radius: 0 !important;
+        }
+
+        @container style(--phi___is-compact-mode: 1)
+        {
+            .tab-group
+            {
+                flex: 1;
+            }
         }
 
         .tab-indicator:first-child
