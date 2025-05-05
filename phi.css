@@ -52,7 +52,7 @@
     }
 }
 
-#browser:not(.fullscreen, .minimal-ui, .popup, .tabs-top, .tabs-bottom, .break-mode, .tabs-off)
+#app:has(#browser:not(.fullscreen, .minimal-ui, .popup, .tabs-top, .tabs-bottom, .break-mode, .tabs-off))
 {
     &:has(#panel_switch) { --phi___is-compact-mode: 1; }
     &:has(.panel-collapse-guard[aria-hidden="false"]) { --phi___is-panel-open: 1; }
@@ -83,17 +83,20 @@
         display: contents !important;
     }
 
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
+    #browser
+    {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+    }
 
-    &.tabs-left
+    #browser.tabs-left
     {
         grid-template-columns: calc(var(--phi--sidebar-width) * 1px) auto;
         --phi__sidebar-order: 1;
         --phi__page-order: 2;
     }
 
-    &.tabs-right
+    #browser.tabs-right
     {
         grid-template-columns: auto calc(var(--phi--sidebar-width) * 1px);
         --phi__sidebar-order: 2;
@@ -102,12 +105,12 @@
 
     @container style(--phi___is-compact-mode: 1)
     {
-        &.tabs-left
+        #browser.tabs-left
         {
             grid-template-columns: calc(var(--phi--compact-sidebar-width) * 1px) auto;
         }
     
-        &.tabs-right
+        #browser.tabs-right
         {
             grid-template-columns: auto calc(var(--phi--compact-sidebar-width) * 1px);
         }
@@ -197,17 +200,17 @@
         grid-template-rows: var(--phi__window-controls-row-height) 1fr 1fr auto;
     }
 
-    &.mac.tabs-left .toolbar-mainbar[aria-label]:has(.window-buttongroup)
+    #browser.mac.tabs-left .toolbar-mainbar[aria-label]:has(.window-buttongroup)
     {
         --phi__window-controls-row-height: 40px;
     }
 
-    &.mac.tabs-right .toolbar-mainbar[aria-label]:has(.window-buttongroup)
+    #browser.mac.tabs-right .toolbar-mainbar[aria-label]:has(.window-buttongroup)
     {
         --phi__window-controls-row-height: 0;
     }
 
-    &.mac.tabs-right:not(.native)
+    #browser.mac.tabs-right:not(.native)
     {
         &::after
         {
@@ -229,13 +232,13 @@
         }
     }
 
-    &.mac .window-buttongroup
+    #browser.mac .window-buttongroup
     {
         height: var(--phi__window-controls-row-height);
     }
 
-    &.mac.tabs-right .toolbar-mainbar[aria-label],
-    &.native .toolbar-mainbar[aria-label]
+    #browser.mac.tabs-right .toolbar-mainbar[aria-label],
+    #browser.native .toolbar-mainbar[aria-label]
     {
         padding-top: 5px !important;
     }
@@ -723,7 +726,7 @@
         }
     }
 
-    &:not(.ui-transparent-tabs) .tab-position:not(.is-pinned)
+    #browser:not(.ui-transparent-tabs) .tab-position:not(.is-pinned)
     {
         .group:not(.active, :hover) .tab-indicator:not(:hover),
         .tab-indicator:not(.active):not(:hover)
@@ -732,7 +735,7 @@
         }
     }
 
-    &.ui-transparent-tabs .tab-position:not(.is-pinned)
+    #browser.ui-transparent-tabs .tab-position:not(.is-pinned)
     {
         .group:not(.active, :hover) .tab-indicator:not(:hover),
         .tab-indicator:not(.active):not(:hover)
@@ -742,7 +745,7 @@
     }
 
     .tab-position:not(.is-pinned) .tab-indicator.active::before,
-    &.isblurred .tab-position:not(.is-pinned) .tab-indicator::before
+    #browser.isblurred .tab-position:not(.is-pinned) .tab-indicator::before
     {
         color: var(--colorFg);
     }
