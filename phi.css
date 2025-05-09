@@ -247,6 +247,16 @@
     {
         .toolbar-mainbar[aria-label]
         {
+            .button-toolbar,
+            .UrlBar-AddressField,
+            .toolbar-extensions
+            {
+                display: none;
+            }
+        }
+
+        #browser.mac.tabs-right .toolbar-mainbar[aria-label]
+        {
             display: none;
         }
     }
