@@ -192,22 +192,25 @@
         -webkit-app-region: drag;
     }
 
-    .toolbar-mainbar[aria-label]:has(.window-buttongroup)
+    &:has(.window-buttongroup)
     {
-        --phi__window-controls-row-height: 1fr;
-        --phi__address-bar-row: 3;
-        --phi__extensions-row: 4;
-        grid-template-rows: var(--phi__window-controls-row-height) 1fr 1fr auto;
-    }
+        .toolbar-mainbar[aria-label]
+        {
+            --phi__window-controls-row-height: 1fr;
+            --phi__address-bar-row: 3;
+            --phi__extensions-row: 4;
+            grid-template-rows: var(--phi__window-controls-row-height) 1fr 1fr auto;
+        }
 
-    #browser.mac.tabs-left .toolbar-mainbar[aria-label]:has(.window-buttongroup)
-    {
-        --phi__window-controls-row-height: 40px;
-    }
+        #browser.mac.tabs-left .toolbar-mainbar[aria-label]
+        {
+            --phi__window-controls-row-height: 40px;
+        }
 
-    #browser.mac.tabs-right .toolbar-mainbar[aria-label]:has(.window-buttongroup)
-    {
-        --phi__window-controls-row-height: 0;
+        #browser.mac.tabs-right .toolbar-mainbar[aria-label]
+        {
+            --phi__window-controls-row-height: 0;
+        }
     }
 
     #browser.mac .window-buttongroup
