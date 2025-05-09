@@ -540,6 +540,7 @@
         .tab .favicon
         {
             margin: 0;
+            display: flex;
         }
 
         .tab .title,
@@ -707,9 +708,12 @@
                 justify-content: center;
             }
 
-            .favicon
+            @container not style(--phi___is-compact-mode: 1)
             {
-                display: none;
+                .favicon
+                {
+                    display: none;
+                }
             }
 
             .close
