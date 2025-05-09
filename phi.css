@@ -210,6 +210,11 @@
         --phi__window-controls-row-height: 0;
     }
 
+    #browser.mac .window-buttongroup
+    {
+        height: var(--phi__window-controls-row-height);
+    }
+
     #browser.mac.tabs-right:not(.native, .fullscreen)
     {
         &::after
@@ -230,11 +235,6 @@
         {
             opacity: 0.1;
         }
-    }
-
-    #browser.mac .window-buttongroup
-    {
-        height: var(--phi__window-controls-row-height);
     }
 
     #browser.mac.tabs-right .toolbar-mainbar[aria-label],
