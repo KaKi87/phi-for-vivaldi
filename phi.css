@@ -245,19 +245,27 @@
 
     @container style(--phi___is-compact-mode: 1)
     {
-        .toolbar-mainbar[aria-label]
+        #browser:not(.mac) .toolbar-mainbar[aria-label]
         {
-            .button-toolbar,
-            .UrlBar-AddressField,
-            .toolbar-extensions
+            display: none;
+        }
+
+        #browser.mac
+        {
+            .toolbar-mainbar[aria-label]
+            {
+                .button-toolbar,
+                .UrlBar-AddressField,
+                .toolbar-extensions
+                {
+                    display: none;
+                }
+            }
+    
+            &.tabs-right .toolbar-mainbar[aria-label]
             {
                 display: none;
             }
-        }
-
-        #browser.mac.tabs-right .toolbar-mainbar[aria-label]
-        {
-            display: none;
         }
     }
 
