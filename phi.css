@@ -109,7 +109,7 @@
         {
             grid-template-columns: calc(var(--phi--compact-sidebar-width) * 1px) auto;
         }
-    
+
         #browser.tabs-right
         {
             grid-template-columns: auto calc(var(--phi--compact-sidebar-width) * 1px);
@@ -266,7 +266,7 @@
             {
                 width: calc(100% + var(--phi__address-bar-expansion-width));
             }
-    
+
             #browser.tabs-left .toolbar-mainbar[aria-label]
             {
                 grid-template-columns: var(--phi__toolbar-columns) var(--phi__address-bar-expansion-width);
@@ -280,14 +280,14 @@
                     right: calc(100% - 10px);
                     grid-template-columns: var(--phi__address-bar-expansion-width) var(--phi__toolbar-columns);
                 }
-    
+
                 &.native .toolbar-mainbar[aria-label] > *:first-child,
                 &:not(.native) .toolbar-mainbar[aria-label] .window-buttongroup + *,
                 .toolbar-mainbar[aria-label] .window-buttongroup
                 {
                     grid-column-start: 2;
                 }
-    
+
                 .toolbar-extensions
                 {
                     grid-column: 2 / span var(--phi--toolbar-column-count);
@@ -526,7 +526,7 @@
         {
             margin: 0;
         }
-    
+
         .tab .title,
         .tab .close
         {
@@ -571,30 +571,30 @@
                 flex-direction: column-reverse;
                 background-color: var(--colorAccentBgAlphaHeavy);
             }
-    
+
             .group
             {
                 display: grid;
             }
-    
+
             .tab,
             .tab-group-indicator
             {
                 grid-column: 1 / -1;
             }
-    
+
             .tab
             {
                 grid-row: 1 / 3;
                 align-items: center;
             }
-    
+
             .tab-group-indicator
             {
                 grid-row: 1 / 2;
                 column-gap: 2px;
             }
-    
+
             .tab-header
             {
                 flex: 1 !important;
@@ -602,7 +602,7 @@
                 width: 100%;
                 justify-content: center;
             }
-    
+
             .button-badge
             {
                 top: unset !important;
@@ -610,12 +610,12 @@
                 bottom: 2px !important;
                 left: unset !important;
             }
-    
+
             .tab-indicator:not(.active):not(:hover)
             {
                 background-color: var(--colorHighlightFgAlpha) !important;
             }
-    
+
             .tab-indicator.active
             {
                 background-color: transparent !important;
