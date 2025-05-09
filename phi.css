@@ -403,6 +403,11 @@
 
     @container style(--phi___is-compact-mode: 1)
     {
+        [name="WorkspaceButton"]
+        {
+            margin-top: 5px !important;
+        }
+
         [name="WorkspaceButton"] .button-title
         {
             display: none;
