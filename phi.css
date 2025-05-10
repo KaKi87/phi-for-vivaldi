@@ -890,12 +890,17 @@
         {
             display: flex;
             flex-direction: column;
+            align-items: center;
         
             &::before
             {
                 content: '🔗 ' attr(src);
                 padding: 0.25rem 0;
+                width: 80%;
                 text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
     }
