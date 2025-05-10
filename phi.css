@@ -811,7 +811,7 @@
         gap: 6px;
     }
 
-    .tile
+    .tiled .tile
     {
         border: 0 !important;
     }
