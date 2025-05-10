@@ -1,10 +1,10 @@
 /* φ Phi (/faɪ/)
  * The ultimate vertical experience theme for Vivaldi, made with attention to details.
- * Version 2025_05_09.0
+ * Version 2025_05_10.0
  *
  * Last Linux test   : Phi current on Vivaldi v7.3.3635.11
- * Last Windows test : Phi current on Vivaldi v7.3.3635.12
- * Last Mac test     : Phi current on Vivaldi v7.3.3635.4
+ * Last Windows test : Phi 2025_05_09.0 on Vivaldi v7.3.3635.12
+ * Last Mac test     : Phi 2025_05_09.0 on Vivaldi v7.3.3635.4
  *
  * (C) 2025 — KaKi87
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -35,6 +35,7 @@
     --phi--webview-border-radius: 0;
     --phi--webview-shadow-size: 0;
     --phi--webview-shadow-color: 0, 0, 0, 0.25;
+    --phi--is-individual-tiled-tab-header: 0;
 }
 
 /*┌───────────┐
@@ -880,6 +881,22 @@
         .tiled.webpageview:not(.active)
         {
             box-shadow: 0 0 calc(var(--phi--webview-shadow-size) * 1px) rgba(var(--phi--webview-shadow-color));
+        }
+    }
+
+    @container style(--phi--is-individual-tiled-tab-header: 1)
+    {
+        .tiled .webpage webview[src]
+        {
+            display: flex;
+            flex-direction: column;
+        
+            &::before
+            {
+                content: '🔗 ' attr(src);
+                padding: 0.25rem 0;
+                text-align: center;
+            }
         }
     }
 }
