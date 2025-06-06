@@ -25,7 +25,7 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
 | ![](./screenshots/10_compact_mode.gif)      |                                        |                                              |
 | **Compact mode** as "panel toggle"          |                                        |                                              |
 
-## :gear: Installation
+## :gear: Installation ([video](https://www.youtube.com/watch?v=gt5pZEUbFbM))
 
 1. Create a folder to download the mod into ;
 2. Download the mod by right-clicking [here](https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/phi.css) then "Save Link As..." to the folder created in step 1 ;
