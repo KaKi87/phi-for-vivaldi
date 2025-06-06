@@ -38,7 +38,7 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
    - Under "Tabs" ➔ "Tabs" ➔ "Tab Bar Position", select "Left" or "Right" ;
    - Under "Tabs" ➔ "Tab Display" ➔ "Tab Options", uncheck "Show Popup Thumbnails" ;
    - Under "Tabs" ➔ "Tab Features" ➔ "Tab Stacking", select "Compact" ;
-   - (Optionally) Under "Tabs" ➔ "Panel Position", select "Left" or "Right" ;
+   - (Optionally) Under "Panel" ➔ "Panel Position", select "Left" or "Right" ;
    - Under "Panel" ➔ "Panels" ➔ "Panel Options", check "Floating Panel" ;
    - (Optionally) Under "Address Bar" ➔ "Extension Visibility", check "Expand Hidden Extensions to Drop-Down Menu" ;
    - (Optionally) Under "Keyboard" ➔ "View" ➔ "Panel Toggle", set a shortcut for compact mode ;
