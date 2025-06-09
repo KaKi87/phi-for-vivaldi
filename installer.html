@@ -29,10 +29,19 @@
                 grid-template-columns: auto 1fr;
                 align-items: center;
             }
+            .header__title {
+                display: flex;
+                align-items: center;
+                column-gap: 0.5rem;
+            }
+            .header__title__logo {
+                width: 2rem;
+            }
             .header__nav {
                 display: flex;
                 justify-content: end;
                 align-items: center;
+                column-gap: 0.5rem;
             }
             .main {
                 display: flex;
@@ -40,40 +49,112 @@
                 row-gap: 1rem;
                 align-items: start;
             }
+            .main__nav {
+                display: flex;
+                column-gap: 0.5rem;
+            }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
         <script>
             const app = Vue.createApp({
                 data: () => ({
-                    step: 1,
-                    profilePath: ''
+                    step: undefined,
+                    profilePath: undefined,
+                    preferencesTimestamp: undefined,
+                    preferencesData: undefined
                 }),
                 computed: {
+                    canPrevStep: function(){
+                        return this.step > 1;
+                    },
                     canNextStep: function(){
                         switch(this.step){
                             case 1: return /[Vv]ivaldi\/(Default|Profile [0-9]+)$/.test(this.profilePath);
+                            case 2: return !!this.preferencesData;
                         }
+                    },
+                    pathSeparator: function(){
+                        return ['/', '\\'].find(_ => this.profilePath.includes(_));
+                    },
+                    preferencesPath: function(){
+                        return `${this.profilePath}${this.profilePath.endsWith(this.pathSeparator) ? '' : this.pathSeparator}Preferences`;
+                    },
+                    preferencesTimestampString: function(){
+                        if(!this.preferencesTimestamp) return;
+                        return new Date(this.preferencesTimestamp).toLocaleString();
                     }
                 },
                 methods: {
+                    restoreConfig: function(){
+                        ({
+                            step: this.step = 1,
+                            profilePath: this.profilePath = '',
+                            preferencesTimestamp: this.preferencesTimestamp,
+                            preferencesData: this.preferencesData
+                        } = JSON.parse(window.localStorage.getItem('config') || '{}'));
+                    },
+                    saveConfig: function(){
+                        window.localStorage.setItem('config', JSON.stringify({
+                            step: this.step,
+                            profilePath: this.profilePath,
+                            preferencesTimestamp: this.preferencesTimestamp,
+                            preferencesData: this.preferencesData
+                        }));
+                    },
+                    prevStep: function(){
+                        this.step--;
+                        this.saveConfig();
+                    },
                     nextStep: function(){
                         this.step++;
+                        this.saveConfig();
+                    },
+                    copyPreferencesPath: async function(){
+                        await window.navigator.clipboard.writeText(this.preferencesPath);
+                    },
+                    onPreferencesChange: async function(event){
+                        const
+                            timestamp = Date.now(),
+                            file = event.target.files[0];
+                        if(!file) return;
+                        const data = await new Promise(resolve => {
+                            const reader = new FileReader();
+                            reader.addEventListener('load', () => resolve(reader.result));
+                            reader.readAsText(file);
+                        });
+                        let jsonData;
+                        try { jsonData = JSON.parse(data) } catch {}
+                        if(!jsonData) return;
+                        this.preferencesTimestamp = timestamp;
+                        this.preferencesData = jsonData;
+                        this.saveConfig();
                     }
+                },
+                beforeMount: function(){
+                    this.restoreConfig();
                 },
                 template: `
                     <header class="header">
-                        <h1><sup>φ</sup>Phi for Vivaldi — Installer</h1>
+                        <h1 class="header__title">
+                            <img
+                                class="header__title__logo"
+                                src="https://git.kaki87.net/KaKi87/phi-for-vivaldi/media/branch/master/icons/phi.svg"
+                                alt="Phi logo"
+                            >
+                            Phi for Vivaldi — Installer
+                        </h1>
                         <nav
                             class="header__nav"
                         ><ul
                             style="display: contents"
                         >
+                            <li><a target="_blank" href="https://discord.gg/pdgQE6juqM">Discord</a></li>
                             <li><a target="_blank" href="https://github.com/KaKi87/phi-for-vivaldi">GitHub</a></li>
                         </ul></nav>
                     </header>
                     <main class="main">
                         <template v-if="step === 1">
-                            <p>Welcome. This will install the <sup>φ</sup>Phi CSS mod for Vivaldi.</p>
+                            <p>Welcome! This will install the <sup>φ</sup>Phi CSS mod for Vivaldi.</p>
                             <p>
                                 To begin, open Vivaldi's <i>About</i> page using the button below,
                                 or from the Vivaldi menu <i>Help</i> ➔ <i>About</i>.
@@ -85,10 +166,33 @@
                                 <input type="text" v-model="profilePath">
                             </p>
                         </template>
-                        <button
-                            :disabled="!canNextStep"
-                            @click="nextStep"
-                        >Next</button>
+                        <template v-if="step === 2">
+                            <p>
+                                Now, let's import your current browser settings.
+                                <br>
+                                Copy the following path :
+                                <code>{{ preferencesPath }}</code>
+                                &nbsp;
+                                <button @click="copyPreferencesPath">Copy path</button>
+                            </p>
+                            <p>
+                                Then, select the file at that path :
+                                <input type="file" @change="onPreferencesChange">
+                                <template v-if="preferencesTimestampString">
+                                    Preferences last imported on {{ preferencesTimestampString }}.
+                                </template>
+                            </p>
+                        </template>
+                        <nav class="main__nav">
+                            <button
+                                :disabled="!canPrevStep"
+                                @click="prevStep"
+                            >Back</button>
+                            <button
+                                :disabled="!canNextStep"
+                                @click="nextStep"
+                            >Next</button>
+                        </nav>
                     </main>
                 `
             });
