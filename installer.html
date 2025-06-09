@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="darkreader-lock">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <title>φ Phi installer</title>
+        <style>
+            :root {
+                color-scheme: dark;
+            }
+
+            body > header, body > main { padding-block: 0; }
+            h1, p { margin: 0; }
+            nav li { padding: 0; }
+            input { margin-bottom: 0 !important; }
+
+            .app {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+            }
+            .header {
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: center;
+            }
+            .header__nav {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+            }
+            .main {
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+                align-items: start;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+        <script>
+            const app = Vue.createApp({
+                data: () => ({
+                    step: 1,
+                    profilePath: ''
+                }),
+                computed: {
+                    canNextStep: function(){
+                        switch(this.step){
+                            case 1: return /[Vv]ivaldi\/(Default|Profile [0-9]+)$/.test(this.profilePath);
+                        }
+                    }
+                },
+                methods: {
+                    nextStep: function(){
+                        this.step++;
+                    }
+                },
+                template: `
+                    <header class="header">
+                        <h1><sup>φ</sup>Phi for Vivaldi — Installer</h1>
+                        <nav
+                            class="header__nav"
+                        ><ul
+                            style="display: contents"
+                        >
+                            <li><a target="_blank" href="https://github.com/KaKi87/phi-for-vivaldi">GitHub</a></li>
+                        </ul></nav>
+                    </header>
+                    <main class="main">
+                        <template v-if="step === 1">
+                            <p>Welcome. This will install the <sup>φ</sup>Phi CSS mod for Vivaldi.</p>
+                            <p>
+                                To begin, open Vivaldi's <i>About</i> page using the button below,
+                                or from the Vivaldi menu <i>Help</i> ➔ <i>About</i>.
+                                <br>
+                                <a target="_blank" href="vivaldi://version" role="button">Open <i>About</i> page</a>
+                            </p>
+                            <p>
+                                Then, paste the value of <i>Profile Path</i> here :
+                                <input type="text" v-model="profilePath">
+                            </p>
+                        </template>
+                        <button
+                            :disabled="!canNextStep"
+                            @click="nextStep"
+                        >Next</button>
+                    </main>
+                `
+            });
+            document.addEventListener('DOMContentLoaded', () => app.mount(document.body));
+        </script>
+    </head>
+    <body class="app"></body>
+</html>
