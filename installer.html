@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="darkreader-lock">
+        <link rel="icon" href="https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/icons/phi.svg">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
         <title>φ Phi installer</title>
         <style>
             :root {
@@ -12,9 +14,9 @@
             }
 
             body > header, body > main { padding-block: 0; }
-            h1, p { margin: 0; }
-            nav li { padding: 0; }
-            input { margin-bottom: 0 !important; }
+            nav li { padding-top: 0; }
+            h1, p, fieldset, input, label, details { margin: 0 !important; }
+            label { display: unset; }
 
             .app {
                 padding: 1rem;
@@ -23,25 +25,11 @@
                 row-gap: 1rem;
             }
             .header {
-                padding-bottom: 0.5rem;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                display: grid;
-                grid-template-columns: auto 1fr;
-                align-items: center;
-            }
-            .header__title {
-                display: flex;
-                align-items: center;
-                column-gap: 0.5rem;
             }
             .header__title__logo {
                 width: 2rem;
-            }
-            .header__nav {
-                display: flex;
-                justify-content: end;
-                align-items: center;
-                column-gap: 0.5rem;
+                height: 2rem;
             }
             .main {
                 display: flex;
@@ -49,19 +37,52 @@
                 row-gap: 1rem;
                 align-items: start;
             }
+            .main__fieldset {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 0.5rem;
+            }
+            .main__fieldset__description {
+                color: var(--pico-color-zinc-400);
+            }
+            .main__fieldset__info {
+                margin-left: 0.5rem;
+            }
+            .main__accordion {
+                width: 100%;
+            }
             .main__nav {
                 display: flex;
                 column-gap: 0.5rem;
             }
+            .Field__inputContainer,
+            .Field__inputContainer__input {
+                text-align: right;
+            }
+            .Field__inputContainer__input {
+                max-width: 11rem;
+            }
+            .Field__inputContainer__input[type="number"] {
+                padding-left: 0;
+                padding-right: 0;
+            }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
-        <script>
+        <script type="module">
+            import joinPath from 'https://cdn.jsdelivr.net/npm/join-path@1.1.1/+esm';
+
             const app = Vue.createApp({
                 data: () => ({
                     step: undefined,
                     profilePath: undefined,
+                    isProfilePathValid: undefined,
                     preferencesTimestamp: undefined,
-                    preferencesData: undefined
+                    preferencesProfileName: undefined,
+                    preferencesData: undefined,
+                    isResetLayout: undefined,
+                    customizationOptions: undefined,
+                    isCustomizationOptionsValid: undefined,
+                    isAdvancedCustomization: undefined
                 }),
                 computed: {
                     canPrevStep: function(){
@@ -69,36 +90,213 @@
                     },
                     canNextStep: function(){
                         switch(this.step){
-                            case 1: return /[Vv]ivaldi\/(Default|Profile [0-9]+)$/.test(this.profilePath);
+                            case 1: return this.isProfilePathValid;
                             case 2: return !!this.preferencesData;
+                            case 3: return this.isCustomizationOptionsValid;
                         }
                     },
-                    pathSeparator: function(){
-                        return ['/', '\\'].find(_ => this.profilePath.includes(_));
-                    },
                     preferencesPath: function(){
-                        return `${this.profilePath}${this.profilePath.endsWith(this.pathSeparator) ? '' : this.pathSeparator}Preferences`;
+                        return joinPath(this.profilePath, 'Preferences');
                     },
                     preferencesTimestampString: function(){
                         if(!this.preferencesTimestamp) return;
                         return new Date(this.preferencesTimestamp).toLocaleString();
+                    },
+                    isMac: function(){
+                        return window.navigator.userAgentData.platform === 'macOS';
+                    },
+                    customizationFields: function(){
+                        return [
+                            {
+                                id: 'isNativeWindow',
+                                label: 'Use native window',
+                                description: `Recommended on Mac and KDE Linux (and other global menu environments).`
+                            },
+                            {
+                                id: 'isStatusOverlay',
+                                label: 'Status info overlay',
+                                description: `Show a link's URL on hover (default on all browsers).`
+                            },
+                            {
+                                id: 'isRightSideUI',
+                                label: 'Right Side UI',
+                                description: `Show sidebar and panels on the right side.`
+                            },
+                            {
+                                id: 'isExtensionsDropdown',
+                                label: 'Extensions dropdown',
+                                description: `Show hidden extensions as a dropdown rather than inline, recommended.`
+                            },
+                            ...this.isMac ? [] : [{
+                                id: 'isCompactModeShortcut',
+                                label: 'Compact mode shortcut',
+                                description: `Set ${this.isMac ? 'Cmd' : 'Ctrl'}-Alt-C as keyboard shortcut for compact mode.`
+                            }]
+                        ];
+                    },
+                    advancedCustomizationFields: function(){
+                        return [
+                            {
+                                id: 'sidebar-width',
+                                label: 'Sidebar width (in pixels)',
+                                description: `Amount of horizontal space for the area containing the whole UI.`,
+                                info: `Unfortunately, the sidebar cannot be resized by drag-and-drop.`,
+                                type: 'number'
+                            },
+                            {
+                                id: 'compact-sidebar-width',
+                                label: 'Compact sidebar width (in pixels)',
+                                description: `Amount of horizontal space for the area containing the whole UI in compact mode.`,
+                                info: this.isMac && !this.customizationOptions.isNativeWindow && !this.customizationOptions.isRightSideUI ? ` On Mac, recommended value is 90 when using non-native window controls on left side.` : undefined,
+                                type: 'number'
+                            },
+                            {
+                                id: 'is-phi-menu-icon',
+                                label: 'Phi menu icon',
+                                description: `Whether to show Phi's logo in place of Vivaldi's as menu button.`,
+                                type: 'switch'
+                            },
+                            {
+                                id: 'toolbar-column-count',
+                                label: 'Toolbar column count',
+                                description: `Number of toolbar buttons above the URL bar.`,
+                                info: `Unfortunately, the toolbar cannot have more than one row.`,
+                                type: 'number',
+                                min: 1
+                            },
+                            {
+                                id: 'address-bar-focused-width-increase',
+                                label: 'Address bar focused width increase',
+                                description: `Enlarge the URL bar over the page content when focused.`,
+                                type: 'number'
+                            },
+                            {
+                                id: 'address-bar-font-size-decrease',
+                                label: 'Address bar font size decrease',
+                                description: `Lower the character size of the URL to see more of it.`,
+                                type: 'number'
+                            },
+                            {
+                                id: 'is-address-bar-focused-height-increase',
+                                label: 'Address bar focused height increase',
+                                description: `Whether to enlarge the URL bar over the extensions row below it when focused.`,
+                                type: 'switch'
+                            },
+                            {
+                                id: 'is-address-bar-unfocused-partial',
+                                label: 'Address bar unfocused partial',
+                                description: `Whether to hide "unimportant" parts of the URL when the bar is not focused.`,
+                                info: `"Unimportant" parts are : path and query parameters.`,
+                                type: 'switch'
+                            },
+                            {
+                                id: 'is-address-bar-unfocused-hide-icons',
+                                label: 'Hide address bar icons when unfocused',
+                                description: `Whether to hide icons in the URL bar when not focused to see more of the URL.`,
+                                info: `Except the following indicators : (in)valid HTTP(S), obfuscated domain name, loading.`,
+                                type: 'switch'
+                            },
+                            {
+                                id: 'is-address-bar-focused-hide-icons',
+                                label: 'Hide address bar icons when focused',
+                                description: `Whether to hide icons in the URL bar when focused to see more of the URL.`,
+                                info: `Except the following indicators : (in)valid HTTP(S), obfuscated domain name, loading.`,
+                                type: 'switch'
+                            },
+                            {
+                                id: 'pinned-column-count',
+                                label: 'Pinned column count',
+                                description: `Number of pinned tabs per row.`,
+                                type: 'number',
+                                min: 1
+                            },
+                            {
+                                id: 'webview-border',
+                                label: 'Webview border',
+                                description: `Amount of space around the page content.`,
+                                info: `When enabled, minimal recommended value is 10. Lower values cause UI inconsistencies.`,
+                                type: 'number'
+                            },
+                            {
+                                id: 'webview-border-radius',
+                                label: 'Webview border radius',
+                                description: `Round the corners of the page content.`,
+                                info: `When enabled, recommended value is 5.`,
+                                type: 'number'
+                            },
+                            {
+                                id: 'webview-shadow-size',
+                                label: 'Webview shadow size',
+                                description: `Amount of shadow around the page content.`,
+                                info: `To copy Zen Browser, set value to 10.`,
+                                type: 'number'
+                            },
+                            {
+                                id: 'webview-shadow-color',
+                                label: 'Webview shadow color',
+                                description: `Color of shadow around the page content.`,
+                                type: 'text',
+                                pattern: '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?),\\s?(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?),\\s?(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?),\\s?(0|1|0?\\.\\d+)'
+                            },
+                            {
+                                id: 'is-individual-tiled-tab-header',
+                                label: 'Individual tiled tab header',
+                                description: `Whether to show individual headers for tiled tabs.`,
+                                type: 'switch'
+                            }
+                        ];
+                    },
+                    phiPath: function(){
+                        return joinPath(this.profilePath, 'phi-for-vivaldi');
                     }
                 },
                 methods: {
                     restoreConfig: function(){
+                        let customizationOptions;
                         ({
                             step: this.step = 1,
                             profilePath: this.profilePath = '',
                             preferencesTimestamp: this.preferencesTimestamp,
-                            preferencesData: this.preferencesData
+                            preferencesProfileName: this.preferencesProfileName,
+                            preferencesData: this.preferencesData,
+                            isResetLayout: this.isResetLayout = true,
+                            customizationOptions = {},
+                            isAdvancedCustomization: this.isAdvancedCustomization = false
                         } = JSON.parse(window.localStorage.getItem('config') || '{}'));
+                        this.customizationOptions = {
+                            isNativeWindow: customizationOptions.isNativeWindow ?? false,
+                            isStatusOverlay: customizationOptions.isStatusOverlay ?? true,
+                            isRightSideUI: customizationOptions.isRightSideUI ?? false,
+                            isExtensionsDropdown: customizationOptions.isExtensionsDropdown ?? true,
+                            isCompactModeShortcut: customizationOptions.isCompactModeShortcut ?? true,
+                            'sidebar-width': customizationOptions['sidebar-width'] ?? '210',
+                            'compact-sidebar-width': customizationOptions['compact-sidebar-width'] ?? this.isMac ? '90' : '50',
+                            'is-phi-menu-icon': customizationOptions['is-phi-menu-icon'] ?? true,
+                            'toolbar-column-count': customizationOptions['toolbar-column-count'] ?? '5',
+                            'address-bar-focused-width-increase': customizationOptions['address-bar-focused-width-increase'] ?? '200',
+                            'address-bar-font-size-decrease': customizationOptions['address-bar-font-size-decrease'] ?? '1',
+                            'is-address-bar-focused-height-increase': customizationOptions['is-address-bar-focused-height-increase'] ?? true,
+                            'is-address-bar-unfocused-partial': customizationOptions['is-address-bar-unfocused-partial'] ?? false,
+                            'is-address-bar-unfocused-hide-icons': customizationOptions['is-address-bar-unfocused-hide-icons'] ?? true,
+                            'is-address-bar-focused-hide-icons': customizationOptions['is-address-bar-focused-hide-icons'] ?? false,
+                            'pinned-column-count': customizationOptions['pinned-column-count'] ?? '4',
+                            'webview-border': customizationOptions['webview-border'] ?? '0',
+                            'webview-border-radius': customizationOptions['webview-border-radius'] ?? '0',
+                            'webview-shadow-size': customizationOptions['webview-shadow-size'] ?? '0',
+                            'webview-shadow-color': customizationOptions['webview-shadow-color'] ?? '0, 0, 0, 0.25'
+                        };
                     },
-                    saveConfig: function(){
+                    saveConfig: function(override){
                         window.localStorage.setItem('config', JSON.stringify({
                             step: this.step,
                             profilePath: this.profilePath,
                             preferencesTimestamp: this.preferencesTimestamp,
-                            preferencesData: this.preferencesData
+                            preferencesProfileName: this.preferencesProfileName,
+                            preferencesData: this.preferencesData,
+                            isResetLayout: this.isResetLayout,
+                            customizationOptions: this.customizationOptions,
+                            isAdvancedCustomization: this.isAdvancedCustomization,
+                            ...override
                         }));
                     },
                     prevStep: function(){
@@ -107,10 +305,16 @@
                     },
                     nextStep: function(){
                         this.step++;
-                        this.saveConfig();
+                        this.saveConfig(this.step === 4 ? { step: 1 } : undefined);
                     },
-                    copyPreferencesPath: async function(){
-                        await window.navigator.clipboard.writeText(this.preferencesPath);
+                    checkValidity: element => {
+                        if(!element) return;
+                        const isValid = element.checkValidity();
+                        if(isValid)
+                            element.removeAttribute('aria-invalid');
+                        else
+                            element.setAttribute('aria-invalid', 'true');
+                        return isValid;
                     },
                     onPreferencesChange: async function(event){
                         const
@@ -125,33 +329,144 @@
                         let jsonData;
                         try { jsonData = JSON.parse(data) } catch {}
                         if(!jsonData) return;
+                        // TODO add data structure checks
                         this.preferencesTimestamp = timestamp;
+                        this.preferencesProfileName = jsonData['profile']['name'];
                         this.preferencesData = jsonData;
+                    },
+                    onAdvancedCustomizationToggle: function(event){
+                        this.isAdvancedCustomization = event.target.hasAttribute('open');
                         this.saveConfig();
+                    },
+                    downloadPreferences: function(){
+                        const preferencesData = JSON.parse(JSON.stringify(this.preferencesData));
+                        if(!preferencesData['vivaldi']['experiments'])
+                            preferencesData['vivaldi']['experiments'] = [];
+                        if(!preferencesData['vivaldi']['experiments'].includes('css_mods'))
+                            preferencesData['vivaldi']['experiments'].push('css_mods');
+                        if(!preferencesData['vivaldi']['appearance'])
+                            preferencesData['vivaldi']['appearance'] = {};
+                        if(!preferencesData['vivaldi']['appearance']['css_ui_mods_directory'])
+                            preferencesData['vivaldi']['appearance']['css_ui_mods_directory'] = this.phiPath;
+                        if(!preferencesData['vivaldi']['startup'])
+                            preferencesData['vivaldi']['startup'] = {};
+                        preferencesData['vivaldi']['startup']['check_is_default'] = false;
+                        if(!preferencesData['vivaldi']['tabs'])
+                            preferencesData['vivaldi']['tabs'] = {};
+                        preferencesData['vivaldi']['tabs']['tooltip'] = false;
+                        if(!preferencesData['vivaldi']['tabs']['stacking'])
+                            preferencesData['vivaldi']['tabs']['stacking'] = {};
+                        preferencesData['vivaldi']['tabs']['stacking']['mode'] = 1;
+                        if(!preferencesData['vivaldi']['panels'])
+                            preferencesData['vivaldi']['panels'] = {};
+                        if(!preferencesData['vivaldi']['panels']['as_overlay'])
+                            preferencesData['vivaldi']['panels']['as_overlay'] = {};
+                        preferencesData['vivaldi']['panels']['as_overlay']['enabled'] = true;
+                        if(this.isResetLayout){
+                            if(!preferencesData['vivaldi']['toolbars'])
+                                preferencesData['vivaldi']['toolbars'] = {};
+                            if(!preferencesData['vivaldi']['toolbars']['navigation'])
+                                preferencesData['vivaldi']['toolbars']['navigation'] = [
+                                    'Back',
+                                    'Forward',
+                                    'Home',
+                                    'Reload',
+                                    'AddressField',
+                                    'Extensions'
+                                ];
+                            if(!preferencesData['vivaldi']['toolbars']['panel'])
+                                preferencesData['vivaldi']['toolbars']['panel'] = [
+                                    'AccountButton',
+                                    'PanelBookmarks',
+                                    'PanelHistory',
+                                    'PanelWindow',
+                                    'PanelDownloads',
+                                    'Settings'
+                                ];
+                            preferencesData['vivaldi']['tabs']['show_synced_tabs_button'] = false;
+                        }
+                        if(!preferencesData['vivaldi']['windows'])
+                            preferencesData['vivaldi']['windows'] = {};
+                        preferencesData['vivaldi']['windows']['use_native_decoration'] = this.customizationOptions.isNativeWindow;
+                        if(!preferencesData['vivaldi']['status_bar'])
+                            preferencesData['vivaldi']['status_bar'] = {};
+                        preferencesData['vivaldi']['status_bar'] = this.isStatusOverlay
+                            ? {
+                                'display': 2,
+                                'minimized': 1
+                            }
+                            : {
+                                'display': 1,
+                                'minimized': 0
+                            };
+                        if(!preferencesData['vivaldi']['tabs']['bar'])
+                            preferencesData['vivaldi']['tabs']['bar'] = {};
+                        preferencesData['vivaldi']['tabs']['bar']['position'] = this.customizationOptions.isRightSideUI ? 2 : 1;
+                        if(!preferencesData['vivaldi']['address_bar'])
+                            preferencesData['vivaldi']['address_bar'] = {};
+                        if(!preferencesData['vivaldi']['address_bar']['extensions'])
+                            preferencesData['vivaldi']['address_bar']['extensions'] = {};
+                        preferencesData['vivaldi']['address_bar']['extensions']['render_in_dropdown'] = this.customizationOptions.isExtensionsDropdown;
+                        if(this.customizationOptions.isCompactModeShortcut && !this.isMac){
+                            if(!preferencesData['vivaldi']['actions'])
+                                preferencesData['vivaldi']['actions'] = [];
+                            if(!preferencesData['vivaldi']['actions'][0])
+                                preferencesData['vivaldi']['actions'][0] = {};
+                            preferencesData['vivaldi']['actions'][0]['COMMAND_MAIN_TOGGLE_PANEL_TOGGLE'] = { 'shortcuts': ['ctrl+alt+c'] };
+                        }
+                        const
+                            linkElement = document.createElement('a'),
+                            url = URL.createObjectURL(new Blob([JSON.stringify(preferencesData)], { type: 'application/octet-stream' }));
+                        linkElement.setAttribute('href', url);
+                        linkElement.setAttribute('download', 'Preferences');
+                        document.body.appendChild(linkElement);
+                        linkElement.click();
+                        document.body.removeChild(linkElement);
+                        URL.revokeObjectURL(url);
+                    },
+                    downloadPhi: async function(){
+                        // TODO apply customization options
+                        const
+                            phiCss = await (await fetch(`https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/phi.css?r=${Date.now()}`)).text(),
+                            linkElement = document.createElement('a'),
+                            url = URL.createObjectURL(new Blob([phiCss], { type: 'text/css' }));
+                        linkElement.setAttribute('href', url);
+                        linkElement.setAttribute('download', 'phi.css');
+                        document.body.appendChild(linkElement);
+                        linkElement.click();
+                        document.body.removeChild(linkElement);
+                        URL.revokeObjectURL(url);
                     }
                 },
                 beforeMount: function(){
                     this.restoreConfig();
                 },
+                mounted: function(){
+                    const checkAllValidity = async () => {
+                        await new Promise(resolve => setTimeout(resolve, 0));
+                        this.isProfilePathValid = this.checkValidity(document.querySelector('#profilePath'));
+                        this.isCustomizationOptionsValid = this.checkValidity(document.querySelector('#customizationOptions'));
+                    };
+                    this.$watch('step', checkAllValidity, { immediate: true });
+                    this.$watch('profilePath', checkAllValidity);
+                    this.$watch('customizationOptions', checkAllValidity, { deep: true });
+                },
                 template: `
-                    <header class="header">
-                        <h1 class="header__title">
+                    <header class="header"><nav>
+                        <ul><li>
                             <img
                                 class="header__title__logo"
                                 src="https://git.kaki87.net/KaKi87/phi-for-vivaldi/media/branch/master/icons/phi.svg"
                                 alt="Phi logo"
                             >
-                            Phi for Vivaldi — Installer
-                        </h1>
-                        <nav
-                            class="header__nav"
-                        ><ul
-                            style="display: contents"
-                        >
+                            &nbsp;
+                            <strong>Phi for Vivaldi — Installer</strong>
+                        </li></ul>
+                        <ul>
                             <li><a target="_blank" href="https://discord.gg/pdgQE6juqM">Discord</a></li>
                             <li><a target="_blank" href="https://github.com/KaKi87/phi-for-vivaldi">GitHub</a></li>
-                        </ul></nav>
-                    </header>
+                        </ul>
+                    </nav></header>
                     <main class="main">
                         <template v-if="step === 1">
                             <p>Welcome! This will install the <sup>φ</sup>Phi CSS mod for Vivaldi.</p>
@@ -163,7 +478,13 @@
                             </p>
                             <p>
                                 Then, paste the value of <i>Profile Path</i> here :
-                                <input type="text" v-model="profilePath">
+                                <input
+                                    id="profilePath"
+                                    type="text"
+                                    v-model="profilePath"
+                                    pattern=".+\/[Vv]ivaldi\/(Default|Profile [0-9]+)"
+                                    required
+                                >
                             </p>
                         </template>
                         <template v-if="step === 2">
@@ -171,17 +492,79 @@
                                 Now, let's import your current browser settings.
                                 <br>
                                 Copy the following path :
-                                <code>{{ preferencesPath }}</code>
-                                &nbsp;
-                                <button @click="copyPreferencesPath">Copy path</button>
+                                <Path :path="preferencesPath" />
                             </p>
                             <p>
                                 Then, select the file at that path :
                                 <input type="file" @change="onPreferencesChange">
                                 <template v-if="preferencesTimestampString">
                                     Preferences last imported on {{ preferencesTimestampString }}.
+                                    <br>
+                                    Profile name : <code>{{ preferencesProfileName }}</code>
                                 </template>
                             </p>
+                        </template>
+                        <form
+                            v-if="step === 3"
+                            id="customizationOptions"
+                            style="display: contents"
+                            @blur.capture="$event.target.form?.reportValidity()"
+                        >
+                            <p>Customization time! Set your preferences below.</p>
+                            <fieldset class="main__fieldset">
+                                <Field
+                                    id="isResetLayout"
+                                    type="switch"
+                                    label="Reset UI layout"
+                                    description="Recommended when installing Phi for the first time."
+                                    v-model="isResetLayout"
+                                />
+                                <template v-for="field in customizationFields">
+                                    <Field
+                                        :id="field.id"
+                                        type="switch"
+                                        :label="field.label"
+                                        :description="field.description"
+                                        v-model="customizationOptions[field.id]"
+                                    />
+                                </template>
+                            </fieldset>
+                            <details
+                                class="main__accordion"
+                                :open="isAdvancedCustomization"
+                                @toggle="onAdvancedCustomizationToggle"
+                            >
+                                <summary>Advanced customization</summary>
+                                <fieldset class="main__fieldset">
+                                    <template v-for="field in advancedCustomizationFields">
+                                        <Field
+                                            :id="field.id"
+                                            :type="field.type"
+                                            :min="field.min"
+                                            :pattern="field.pattern"
+                                            :label="field.label"
+                                            :description="field.description"
+                                            :info="field.info"
+                                            v-model="customizationOptions[field.id]"
+                                        />
+                                    </template>
+                                </fieldset>
+                            </details>
+                        </form>
+                        <template v-if="step === 4">
+                            <p>
+                                Your new browser settings file is ready!
+                                <br>
+                                Remember to download it at the following path : <Path :path="preferencesPath" />
+                                <br>
+                                <button @click="downloadPreferences">Download preferences file</button>
+                            </p>
+                            <p>
+                                Then, download Phi at the following path : <Path :path="phiPath" />
+                                <br>
+                                <button @click="downloadPhi">Download Phi</button>
+                            </p>
+                            <p>Once done, you may close this page, restart your browser, and enjoy a fully vertical UI on Vivaldi!</p>
                         </template>
                         <nav class="main__nav">
                             <button
@@ -194,6 +577,69 @@
                             >Next</button>
                         </nav>
                     </main>
+                `
+            });
+            app.component('Path', {
+                props: {
+                    path: undefined
+                },
+                methods: {
+                    copy: async function (){
+                        await window.navigator.clipboard.writeText(this.path);
+                    }
+                },
+                template: `
+                    <code>{{ path }}</code>
+                    &nbsp;
+                    <button @click="copy">Copy path</button>
+                `
+            });
+            app.component('Field', {
+                props: {
+                    id: undefined,
+                    type: undefined,
+                    min: undefined,
+                    pattern: undefined,
+                    label: undefined,
+                    description: undefined,
+                    info: undefined,
+                    modelValue: undefined
+                },
+                emits: ['update:modelValue'],
+                template: `
+                    <p class="Field__inputContainer">
+                        <input
+                            v-if="type === 'switch'"
+                            class="Field__inputContainer__input"
+                            :id="id"
+                            type="checkbox"
+                            role="switch"
+                            :checked="modelValue"
+                            @change="$emit('update:modelValue', $event.target.checked)"
+                        >
+                        <input
+                            v-if="type === 'number' || type === 'text'"
+                            class="Field__inputContainer__input"
+                            :id="id"
+                            :type="type"
+                            :value="modelValue"
+                            :min="min ?? 0"
+                            minlength="1"
+                            :pattern="pattern"
+                            required
+                            @input="$emit('update:modelValue', $event.target.value)"
+                        >
+                    </p>
+                    <p>
+                        <label :for="id">{{ label }}</label>
+                        <span
+                            v-if="info"
+                            class="main__fieldset__info"
+                            :data-tooltip="info"
+                        >ⓘ</span>
+                        <br>
+                        <span class="main__fieldset__description">{{ description }}</span>
+                    </p>
                 `
             });
             document.addEventListener('DOMContentLoaded', () => app.mount(document.body));
