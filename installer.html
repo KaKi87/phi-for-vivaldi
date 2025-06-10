@@ -247,7 +247,7 @@
                         ];
                     },
                     phiPath: function(){
-                        return joinPath(this.profilePath, 'phi-for-vivaldi');
+                        return joinPath(this.profilePath, 'phi.css');
                     }
                 },
                 methods: {
@@ -283,7 +283,8 @@
                             'webview-border': customizationOptions['webview-border'] ?? '0',
                             'webview-border-radius': customizationOptions['webview-border-radius'] ?? '0',
                             'webview-shadow-size': customizationOptions['webview-shadow-size'] ?? '0',
-                            'webview-shadow-color': customizationOptions['webview-shadow-color'] ?? '0, 0, 0, 0.25'
+                            'webview-shadow-color': customizationOptions['webview-shadow-color'] ?? '0, 0, 0, 0.25',
+                            'is-individual-tiled-tab-header': customizationOptions['is-individual-tiled-tab-header'] ?? false
                         };
                     },
                     saveConfig: function(override){
@@ -347,7 +348,7 @@
                         if(!preferencesData['vivaldi']['appearance'])
                             preferencesData['vivaldi']['appearance'] = {};
                         if(!preferencesData['vivaldi']['appearance']['css_ui_mods_directory'])
-                            preferencesData['vivaldi']['appearance']['css_ui_mods_directory'] = this.phiPath;
+                            preferencesData['vivaldi']['appearance']['css_ui_mods_directory'] = this.profilePath;
                         if(!preferencesData['vivaldi']['startup'])
                             preferencesData['vivaldi']['startup'] = {};
                         preferencesData['vivaldi']['startup']['check_is_default'] = false;
@@ -425,9 +426,23 @@
                         URL.revokeObjectURL(url);
                     },
                     downloadPhi: async function(){
-                        // TODO apply customization options
                         const
-                            phiCss = await (await fetch(`https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/phi.css?r=${Date.now()}`)).text(),
+                            phiCssLines = (await (await fetch(`https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/phi.css?r=${Date.now()}`)).text()).split('\n'),
+                            prefix = '    --phi--';
+                        let phiCss = '';
+                        for(let line of phiCssLines){
+                            if(line.startsWith(prefix)){
+                                const
+                                    key = line.slice(prefix.length, line.indexOf(':')),
+                                    value = this.customizationOptions[key],
+                                    stringValue = value === true  ? '1'
+                                                : value === false ? '0'
+                                                                  : value;
+                                line = `${prefix}${key}: ${stringValue};`;
+                            }
+                            phiCss += `${line}\n`;
+                        }
+                        const
                             linkElement = document.createElement('a'),
                             url = URL.createObjectURL(new Blob([phiCss], { type: 'text/css' }));
                         linkElement.setAttribute('href', url);
