@@ -115,6 +115,9 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 </td><td>
 
 ![](./community_screenshots/MaxedPC08.webp)
+</td><td>
+
+![](./community_screenshots/TwilightGarden.webp)
 </td></tr><tr><td>
 
 [@Rohit685](https://github.com/Rohit685) — Stargazer
@@ -124,6 +127,9 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 </td><td>
 
 [@MaxedPC08](https://github.com/MaxedPC08) — Stargazer
+</td><td>
+
+[@TwilightGarden](https://forum.vivaldi.net/post/848121) — Forum commenter
 </td></tr></table>
 
 [![](https://api.star-history.com/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline)](https://github.com/KaKi87/phi-for-vivaldi)
