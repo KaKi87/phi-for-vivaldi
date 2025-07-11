@@ -37,6 +37,7 @@
     --phi--webview-shadow-color: 0, 0, 0, 0.25;
     --phi--is-individual-tiled-tab-header: 0;
     --phi--is-hide-window-controls: 0;
+    --phi--is-hide-content-blocker: 1;
 }
 
 /*┌───────────┐
@@ -61,13 +62,20 @@
     &:not(:has(.panel-collapse-guard)), &:has(.panel-collapse-guard[aria-hidden="true"]) { --phi___is-panel-closed: 1; }
 
     .separator-wsbutton,
-    .ContentBlocker-Control,
     .is-pinned .title,
     .tab-group .title:not(:has(.tab-title-edit)),
     #tabs-tabbar-container .SlideBar,
     #panel_switch
     {
         display: none !important;
+    }
+
+    @container style(--phi--is-hide-content-blocker: 1)
+    {
+        .ContentBlocker-Control
+        {
+            display: none;
+        }
     }
 
     #main,
@@ -371,6 +379,10 @@
 
     @container style(--phi--is-address-bar-unfocused-hide-icons: 1)
     {
+        &:not(:has(.ContentBlocker, #urlFieldInput:focus)) .ContentBlocker-Control
+        {
+            display: none;
+        }
         &:not(:has(.button-popup:not(.ToolbarButtonPopup-DefaultStyles))) .UrlBar-AddressField:has(#urlFieldInput:not(:focus)) .toolbar-insideinput:last-child
         {
             & > *:not(.UrlBar-UrlObfuscationWarning, [class^="pageload"], .BookmarkButton--Active),
