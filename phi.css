@@ -36,6 +36,7 @@
     --phi--webview-shadow-size: 0;
     --phi--webview-shadow-color: 0, 0, 0, 0.25;
     --phi--is-individual-tiled-tab-header: 0;
+    --phi--is-hide-window-controls: 0;
 }
 
 /*┌───────────┐
@@ -217,6 +218,18 @@
     #browser.mac .window-buttongroup
     {
         height: var(--phi__window-controls-row-height);
+    }
+
+    @container style(--phi--is-hide-window-controls: 1)
+    {
+        .window-buttongroup
+        {
+            visibility: hidden;
+        }
+        .toolbar-mainbar[aria-label]
+        {
+            --phi__window-controls-row-height: 0 !important;
+        }
     }
 
     #browser.mac.tabs-right:not(.native, .fullscreen)
