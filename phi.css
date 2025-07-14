@@ -40,6 +40,13 @@
     --phi--is-hide-content-blocker: 1;
 }
 
+/*
+ * You may copy the above settings in a separate 'phi-custom.css'
+ * while replacing ':root' with 'body' to persist your customizations when updating.
+ * See the README for detailed instructions.
+ */
+@import('./phi-settings.css');
+
 /*┌───────────┐
   │Source code│
   └───────────┘*/
