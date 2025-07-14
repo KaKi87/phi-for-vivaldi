@@ -426,6 +426,11 @@
         flex-wrap: wrap;
     }
 
+    .toolbar-extensions:empty
+    {
+        display: block;
+    }
+
     .toolbar-extensions:empty:after
     {
         width: 100%;
