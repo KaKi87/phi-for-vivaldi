@@ -132,7 +132,7 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 [@TwilightGarden](https://forum.vivaldi.net/post/848121) — Forum commenter
 </td></tr></table>
 
-[![](https://api.star-history.com/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline)](https://github.com/KaKi87/phi-for-vivaldi)
+[![](https://api.star-history.com/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline&theme=dark)](https://github.com/KaKi87/phi-for-vivaldi)
 
 ## :link: Related projects
 
