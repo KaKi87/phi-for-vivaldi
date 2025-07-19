@@ -830,6 +830,16 @@
         color: var(--colorFg);
     }
 
+    .toolbar-tabbar-after
+    {
+        flex: 1 1 45px;
+    }
+
+    .toolbar-tabbar-after .toolbar-spacer-flexible
+    {
+        display: none;
+    }
+
     .newtab
     {
         top: 0 !important;
