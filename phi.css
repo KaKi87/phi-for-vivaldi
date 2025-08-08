@@ -45,7 +45,7 @@
  * while replacing ':root' with 'body' to persist your customizations when updating.
  * See the README for detailed instructions.
  */
-@import('./phi-settings.css');
+@import './phi-settings.css';
 
 /*┌───────────┐
   │Source code│
