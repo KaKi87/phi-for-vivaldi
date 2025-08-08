@@ -1,8 +1,8 @@
 /* φ Phi (/faɪ/)
  * The ultimate vertical experience theme for Vivaldi, made with attention to details.
- * Version 2025_05_10.0
+ * Version 2025_07_20.0
  *
- * Last Linux test   : Phi current on Vivaldi v7.3.3635.11
+ * Last Linux test   : Phi current on Vivaldi v7.5.3735.58
  * Last Windows test : Phi 2025_05_09.0 on Vivaldi v7.3.3635.12
  * Last Mac test     : Phi 2025_05_09.0 on Vivaldi v7.3.3635.4
  *
@@ -950,7 +950,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        
+
             &::before
             {
                 content: '🔗 ' attr(src);
