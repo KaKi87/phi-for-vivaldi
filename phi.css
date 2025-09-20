@@ -662,6 +662,8 @@
 
             .tab
             {
+                max-height: unset;
+                height: 100%;
                 grid-row: 1 / 3;
                 align-items: center;
             }
