@@ -478,6 +478,10 @@
         {
             display: none;
         }
+
+        .toolbar-panel .toolbar-divider {
+            display: none;
+        }
     }
 
     @container style(--phi___is-panel-open: 1)
@@ -498,6 +502,10 @@
             height: 100%;
             backdrop-filter: var(--backgroundBlur);
             z-index: -1;
+        }
+
+        .toolbar-panel .toolbar-divider {
+            display: none;
         }
     }
 
