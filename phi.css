@@ -847,7 +847,15 @@
 
     .toolbar-tabbar-after
     {
-        flex: 1 1 45px;
+        flex: 1 1 35px;
+    }
+
+    @container style(--phi___is-compact-mode: 1)
+    {
+        .toolbar-tabbar-after
+        {
+            flex: 1 1 80px;
+        }
     }
 
     .toolbar-tabbar-after .toolbar-spacer-flexible
