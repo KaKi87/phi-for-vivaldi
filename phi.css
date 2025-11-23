@@ -22,6 +22,7 @@
 {
     --phi--sidebar-width: 210;
     --phi--compact-sidebar-width: 50;
+    --phi--is-auto-compact-mode: 0;
     --phi--is-phi-menu-icon: 1;
     --phi--toolbar-column-count: 5;
     --phi--address-bar-focused-width-increase: 200;
@@ -75,6 +76,21 @@
     #panel_switch
     {
         display: none !important;
+    }
+
+    @container style(--phi--is-auto-compact-mode: 1)
+    {
+        --phi___is-compact-mode: 1;
+
+        &:has(
+            [name="WorkspaceButton"]:hover,
+            .toolbar-mainbar[aria-label]:hover,
+            #tabs-container:hover,
+            .toolbar-panel:hover
+        )
+        {
+            --phi___is-compact-mode: 0;
+        }
     }
 
     @container style(--phi--is-hide-content-blocker: 1)
@@ -144,6 +160,7 @@
     .toolbar-panel
     {
         grid-column: var(--phi__sidebar-order) / span 1;
+        /*  */
     }
 
     #webview-container           { grid-row: 1 /     -1; }
