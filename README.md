@@ -58,6 +58,7 @@ While the mod aims to be compatible with as many native customization features a
 |------------------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------|-----------------|
 | `sidebar-width`                          | Amount of horizontal space for the area containing the whole UI.<sup>(1)</sup>                    | Any number (in pixels)                  | `210`           |
 | `compact-sidebar-width`                  | Amount of horizontal space for the area containing the whole UI in compact mode.<sup>(1, 2)</sup> | Any number (in pixels)                  | `50`            |
+| `is-auto-compact-mode`                   | Whether to automatically enable compact mode when not hovering the sidebar.                       | `1` = enable<br>`0` = disable           | `0`             |
 | `is-phi-menu-icon`                       | Whether to show Phi's logo in place of Vivaldi's as menu button.                                  | `1` = enable<br>`0` = disable           | `1`             |
 | `toolbar-column-count`                   | Number of toolbar buttons above the URL bar.<sup>(3)</sup>                                        | Any quantity                            | `5`             |
 | `address-bar-focused-width-increase`     | Enlarge the URL bar over the page content when focused.                                           | Any number (in pixels)<br>`0` = disable | `200`           |
