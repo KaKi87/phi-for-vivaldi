@@ -509,6 +509,16 @@
             z-index: 4 !important;
         }
 
+        #browser.mac.tabs-left #panels-container
+        {
+            padding-top: 50px;
+        }
+
+        #browser.mac.tabs-left .panel-group
+        {
+            padding-top: 40px;
+        }
+
         .toolbar-panel::after
         {
             content: '';
