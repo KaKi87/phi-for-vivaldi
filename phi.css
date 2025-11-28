@@ -496,8 +496,13 @@
             display: none;
         }
 
-        .toolbar-panel .toolbar-divider {
-            display: none;
+        .toolbar-panel
+        {
+            .toolbar-divider,
+            .toolbar-spacer
+            {
+                display: none;
+            }
         }
     }
 
@@ -531,8 +536,13 @@
             z-index: -1;
         }
 
-        .toolbar-panel .toolbar-divider {
-            display: none;
+        .toolbar-panel
+        {
+            .toolbar-divider,
+            .toolbar-spacer
+            {
+                display: none;
+            }
         }
     }
 
