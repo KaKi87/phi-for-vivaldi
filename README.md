@@ -17,13 +17,13 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
 
 ## :camera_flash: More screenshots​
 
-| ![](./screenshots/4_address_bar_focus.gif)  | ![](./screenshots/5_stacked_tabs.gif)  | ![](./screenshots/6_pinned_stacked_tabs.gif) |
-|---------------------------------------------|----------------------------------------|----------------------------------------------|
-| **Address bar** expands on focus (optional) | **Stacked tabs** inline                | **Pinned tabs** icon-only                    |
-| ![](./screenshots/7_panels.gif)             | ![](./screenshots/8_right_side_UI.gif) | ![](./screenshots/9_themes.gif)              |
-| **Panels** at the bottom                    | **Right side UI** supported            | **Themes** supported                         |
-| ![](./screenshots/10_compact_mode.gif)      |                                        |                                              |
-| **Compact mode** as "panel toggle"          |                                        |                                              |
+| ![](./screenshots/4_address_bar_focus.gif)  | ![](./screenshots/5_stacked_tabs.gif)       | ![](./screenshots/6_pinned_stacked_tabs.gif) |
+|---------------------------------------------|---------------------------------------------|----------------------------------------------|
+| **Address bar** expands on focus (optional) | **Stacked tabs** inline                     | **Pinned tabs** icon-only                    |
+| ![](./screenshots/7_panels.gif)             | ![](./screenshots/8_right_side_UI.gif)      | ![](./screenshots/9_themes.gif)              |
+| **Panels** at the bottom                    | **Right side UI** supported                 | **Themes** supported                         |
+| ![](./screenshots/10_compact_mode.gif)      | ![](./screenshots/11_auto_compact_mode.gif) |                                              |
+| **Compact mode** as "panel toggle"          | **Auto**-compact mode                       |                                              |
 
 ## :gear: Installation ([video](https://www.youtube.com/watch?v=gt5pZEUbFbM))
 
