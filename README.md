@@ -118,23 +118,26 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 ![](./community_screenshots/MaxedPC08.webp)
 </td></tr><tr><td>
 
+[@Rohit685](https://github.com/Rohit685) — Stargazer
+</td><td>
+
+[@sohamsarkar1993](https://github.com/sohamsarkar1993) — Stargazer
+</td><td>
+
+[@MaxedPC08](https://github.com/MaxedPC08) — Stargazer
+</td></tr><tr><td>
+
 ![](./community_screenshots/TwilightGarden.webp)
 </td><td>
 
 ![](./community_screenshots/furui1.webp)
 </td><td>
 
-[@Rohit685](https://github.com/Rohit685) — Stargazer
+![](./community_screenshots/tobusy.webp)
 </td></tr><tr><td>
-
-[@sohamsarkar1993](https://github.com/sohamsarkar1993) — Stargazer
-</td><td>
-
-[@MaxedPC08](https://github.com/MaxedPC08) — Stargazer
-</td><td>
 
 [@TwilightGarden](https://forum.vivaldi.net/post/848121) — Forum commenter
-</td></tr><tr><td>
+</td><td>
 
 [@furui1 / @NoProfilePicture](https://old.reddit.com/r/vivaldibrowser/comments/1n3v325/switched_to_vivaldi_so_far_its_been_great/) — Discord & Reddit community member
 </td><td>
