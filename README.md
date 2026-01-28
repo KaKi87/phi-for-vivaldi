@@ -116,16 +116,16 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 </td><td>
 
 ![](./community_screenshots/MaxedPC08.webp)
-</td><td>
+</td></tr><tr><td>
 
 ![](./community_screenshots/TwilightGarden.webp)
 </td><td>
 
 ![](./community_screenshots/furui1.webp)
-</td></tr><tr><td>
+</td><td>
 
 [@Rohit685](https://github.com/Rohit685) — Stargazer
-</td><td>
+</td></tr><tr><td>
 
 [@sohamsarkar1993](https://github.com/sohamsarkar1993) — Stargazer
 </td><td>
@@ -134,9 +134,12 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 </td><td>
 
 [@TwilightGarden](https://forum.vivaldi.net/post/848121) — Forum commenter
-</td><td>
+</td></tr><tr><td>
 
 [@furui1 / @NoProfilePicture](https://old.reddit.com/r/vivaldibrowser/comments/1n3v325/switched_to_vivaldi_so_far_its_been_great/) — Discord & Reddit community member
+</td><td>
+
+[@tobusy / @ARobertDev](https://github.com/ARobertDev) — Discord community member
 </td></tr></table>
 
 [![](https://api.star-history.com/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline&theme=dark)](https://github.com/KaKi87/phi-for-vivaldi)
