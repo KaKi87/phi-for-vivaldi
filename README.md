@@ -28,7 +28,7 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
 ## :gear: Installation ([video](https://www.youtube.com/watch?v=gt5pZEUbFbM))
 
 1. Create a folder to download the mod into ;
-2. Download the mod by right-clicking [here](https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/phi.css) then "Save Link As..." to the folder created in step 1 ;
+2. Download the mod by right-clicking [here](https://raw.githubusercontent.com/KaKi87/phi-for-vivaldi/refs/heads/master/phi.css) then "Save Link As..." to the folder created in step 1 ;
 3. Go to `vivaldi:experiments` and check "Allow CSS modifications" ;
 4. Open Vivaldi settings ;
    - Under "General" ➔ "Startup" ➔ "Default Browser", uncheck "Check on Startup" ;
