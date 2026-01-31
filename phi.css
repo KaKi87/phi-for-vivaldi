@@ -2,7 +2,7 @@
  * The ultimate vertical experience theme for Vivaldi, made with attention to details.
  * Version 2025_11_23.0
  *
- * Last Linux test   : Phi current on Vivaldi v7.7.3851.52
+ * Last Linux test   : Phi current on Vivaldi v7.8.3925.56
  * Last Windows test : Phi 2025_05_09.0 on Vivaldi v7.3.3635.12
  * Last Mac test     : Phi 2025_05_09.0 on Vivaldi v7.3.3635.4
  *
@@ -174,7 +174,9 @@
         position: relative !important;
         left: unset !important;
         right: unset !important;
+        grid-row: 1 / 2;
         grid-column: 1 / -1;
+        background-color: transparent;
     }
 
     .vivaldi
