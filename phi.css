@@ -2,7 +2,7 @@
  * The ultimate vertical experience theme for Vivaldi, made with attention to details.
  * Version 2025_11_23.0
  *
- * Last Linux test   : Phi current on Vivaldi v7.8.3925.56
+ * Last Linux test   : Phi current on Vivaldi v7.8.3925.70
  * Last Windows test : Phi 2025_05_09.0 on Vivaldi v7.3.3635.12
  * Last Mac test     : Phi 2025_05_09.0 on Vivaldi v7.3.3635.4
  *
@@ -1024,5 +1024,14 @@
                 text-overflow: ellipsis;
             }
         }
+    }
+
+    .button-toolbar:has(> [name="UpdateButton"]) {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: calc(var(--phi--webview-border) * 1px) solid var(--colorWindowBg);
+        box-shadow: none;
     }
 }
