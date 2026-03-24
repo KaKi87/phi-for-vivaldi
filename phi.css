@@ -66,8 +66,8 @@
 #app:has(#browser:not(.inner, .minimal-ui, .popup, .tabs-top, .tabs-bottom, .break-mode, .tabs-off))
 {
     &:has(#panel_switch) { --phi___is-compact-mode: 1; }
-    &:has(.panel-collapse-guard[aria-hidden="false"]) { --phi___is-panel-open: 1; }
-    &:not(:has(.panel-collapse-guard)), &:has(.panel-collapse-guard[aria-hidden="true"]) { --phi___is-panel-closed: 1; }
+    &:not(:has(.auto-hide)):has(.panel-collapse-guard[aria-hidden="false"]) { --phi___is-panel-open: 1; }
+    &:has(.auto-hide), &:not(:has(.panel-collapse-guard)), &:has(.panel-collapse-guard[aria-hidden="true"]) { --phi___is-panel-closed: 1; }
 
     .separator-wsbutton,
     .is-pinned .title,
@@ -111,7 +111,8 @@
     #panels,
     #switch,
     .tab-position,
-    #main > .inner
+    #main > .inner,
+    .auto-hide-wrapper
     {
         display: contents !important;
     }
