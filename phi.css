@@ -1,8 +1,8 @@
 /* φ Phi (/faɪ/)
  * The ultimate vertical experience theme for Vivaldi, made with attention to details.
- * Version 2025_11_23.0
+ * Version 2026_03_29.0
  *
- * Last Linux test   : Phi current on Vivaldi v7.8.3925.70
+ * Last Linux test   : Phi current on Vivaldi v7.9.3970.45
  * Last Windows test : Phi 2025_05_09.0 on Vivaldi v7.3.3635.12
  * Last Mac test     : Phi 2025_05_09.0 on Vivaldi v7.3.3635.4
  *
@@ -66,8 +66,10 @@
 #app:has(#browser:not(.inner, .minimal-ui, .popup, .tabs-top, .tabs-bottom, .break-mode, .tabs-off))
 {
     &:has(#panel_switch) { --phi___is-compact-mode: 1; }
-    &:has(.panel-collapse-guard[aria-hidden="false"]) { --phi___is-panel-open: 1; }
+    &:has(.toolbar-panel .button-toolbar.active) { --phi___is-panel-open: 1; }
     &:not(:has(.panel-collapse-guard)), &:has(.panel-collapse-guard[aria-hidden="true"]) { --phi___is-panel-closed: 1; }
+    &:has(.auto-hide) { --phi__is-auto-hide: 1; }
+    &:has(.auto-hide-visible), &:has(.auto-hide-wrapper:hover) { --phi__is-auto-hide-visible: 1; }
 
     .separator-wsbutton,
     .is-pinned .title,
@@ -111,7 +113,10 @@
     #panels,
     #switch,
     .tab-position,
-    #main > .inner
+    #main > .inner,
+    .auto-hide,
+    .auto-hide-wrapper,
+    .auto-hide-wrapper:before
     {
         display: contents !important;
     }
@@ -127,6 +132,11 @@
         grid-template-columns: calc(var(--phi--sidebar-width) * 1px) auto;
         --phi__sidebar-order: 1;
         --phi__page-order: 2;
+
+        &:has(.auto-hide-wrapper):not(.auto-hide-visible):not(:has(.auto-hide-wrapper:hover))
+        {
+            grid-template-columns: 0 auto;
+        }
     }
 
     #browser.tabs-right
@@ -134,6 +144,11 @@
         grid-template-columns: auto calc(var(--phi--sidebar-width) * 1px);
         --phi__sidebar-order: 2;
         --phi__page-order: 1;
+
+        &:has(.auto-hide-wrapper):not(.auto-hide-visible):not(:has(.auto-hide-wrapper:hover))
+        {
+            grid-template-columns: auto 0;
+        }
     }
 
     @container style(--phi___is-compact-mode: 1)
@@ -160,6 +175,19 @@
     .toolbar-panel
     {
         grid-column: var(--phi__sidebar-order) / span 1;
+    }
+
+    &:has(.auto-hide):not(:has(.auto-hide-visible)):not(:has(.auto-hide-wrapper:hover))
+    {
+        [name="WorkspaceButton"],
+        .toolbar-mainbar[aria-label],
+        #tabs-container,
+        .toolbar-panel
+        {
+            opacity: 0;
+            max-width: 0;
+            overflow: hidden;
+        }
     }
 
     #webview-container           { grid-row: 1 /     -1; }
@@ -544,6 +572,18 @@
             {
                 display: none;
             }
+        }
+    }
+
+    @container style(--phi___is-panel-open: 1) and style(--phi__is-auto-hide-visible: 1)
+    {
+        .panel-group
+        {
+            pointer-events: none;
+        }
+        .toolbar-panel
+        {
+            position: absolute;
         }
     }
 
@@ -958,7 +998,10 @@
             border-left-width: calc(var(--phi__border) - var(--phi__border-left-minus));
             border-right-width: calc(var(--phi__border) - var(--phi__border-right-minus));
         }
+    }
 
+    @container (not style(--phi--webview-border: 0)) and ((not style(--phi__is-auto-hide: 1)) or style(--phi__is-auto-hide-visible: 1))
+    {
         &:not(:has(.tiled.active))
         {
 
@@ -988,6 +1031,16 @@
         {
             --phi__border-left-minus: 5px;
             --phi__border-right-minus: 10px;
+        }
+    }
+
+    @container (not style(--phi--webview-border: 0)) and style(--phi__is-auto-hide: 1)
+    {
+        #webpage-stack > .tiled
+        {
+            --phi__border-vertical-minus: 5px;
+            --phi__border-left-minus: 5px;
+            --phi__border-right-minus: 5px;
         }
     }
 

@@ -91,6 +91,20 @@ Applying modifications requires restarting Vivaldi.
 - You may disable Phi by setting the tab bar position to top or bottom or toggling the tab bar off ;
 - Simultaneously using Phi with another CSS mod is not supported.
 
+### **Experimental** auto-hide support
+
+Auto-hide support is experimental. The following bugs are known and will be worked on in the future (help is welcome) :
+
+- Side panels must be closed by clicking the active panel's icon (close button remains hidden even if enabled) ;
+- Toggling auto-hide may activate a side panel (that must be closed by clicking its icon) ;
+- After closing a side panel, the UI may not auto-hide until another sidebar action is made (e.g. : opening/closing the Vivaldi menu or an extension or the the workspaces dropdown) ;
+- Right side panels aren't supported (though right side tabs work) ;
+- When *Use Native Window* is disabled, UI visibility is inconsistent when moving the cursor around the top section (window controls, toolbar, URL bar, extensions) ;
+- Browser shortcuts sometimes stop working until auto-hide is toggled off and back on again ;
+- That's all I found so far, but there's likely more, feel free to report !
+
+However, animating the sidebar's visibility and making the sidebar float instead of changing the webview size, will likely never be possible.
+
 ##  :handshake: Feedback & Support
 
 - [Issues](https://git.kaki87.net/KaKi87/phi-for-vivaldi/issues)
