@@ -129,6 +129,11 @@
         grid-template-columns: calc(var(--phi--sidebar-width) * 1px) auto;
         --phi__sidebar-order: 1;
         --phi__page-order: 2;
+
+        &:has(.auto-hide-wrapper):not(.auto-hide-visible):not(:has(.auto-hide-wrapper:hover))
+        {
+            grid-template-columns: 0 auto;
+        }
     }
 
     #browser.tabs-right
@@ -136,6 +141,11 @@
         grid-template-columns: auto calc(var(--phi--sidebar-width) * 1px);
         --phi__sidebar-order: 2;
         --phi__page-order: 1;
+
+        &:has(.auto-hide-wrapper):not(.auto-hide-visible):not(:has(.auto-hide-wrapper:hover))
+        {
+            grid-template-columns: auto 0;
+        }
     }
 
     @container style(--phi___is-compact-mode: 1)
