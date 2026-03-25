@@ -112,6 +112,7 @@
     #switch,
     .tab-position,
     #main > .inner,
+    .auto-hide,
     .auto-hide-wrapper
     {
         display: contents !important;
