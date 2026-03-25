@@ -160,7 +160,6 @@
     .toolbar-panel
     {
         grid-column: var(--phi__sidebar-order) / span 1;
-        /*  */
     }
 
     #webview-container           { grid-row: 1 /     -1; }
