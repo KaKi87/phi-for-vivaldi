@@ -163,6 +163,19 @@
         grid-column: var(--phi__sidebar-order) / span 1;
     }
 
+    &:has(.auto-hide):not(:has(.auto-hide-visible))
+    {
+        [name="WorkspaceButton"],
+        .toolbar-mainbar[aria-label],
+        #tabs-container,
+        .toolbar-panel
+        {
+            opacity: 0;
+            max-width: 0;
+            overflow: hidden;
+        }
+    }
+
     #webview-container           { grid-row: 1 /     -1; }
     .toolbar-mainbar[aria-label] { grid-row: 1 / span 1; }
     [name="WorkspaceButton"]     { grid-row: 2 / span 1; }
