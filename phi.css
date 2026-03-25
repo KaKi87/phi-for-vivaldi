@@ -163,7 +163,7 @@
         grid-column: var(--phi__sidebar-order) / span 1;
     }
 
-    &:has(.auto-hide):not(:has(.auto-hide-visible))
+    &:has(.auto-hide):not(:has(.auto-hide-visible)):not(:has(.auto-hide-wrapper:hover))
     {
         [name="WorkspaceButton"],
         .toolbar-mainbar[aria-label],
