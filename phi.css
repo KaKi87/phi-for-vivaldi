@@ -68,6 +68,9 @@
     &:has(#panel_switch) { --phi___is-compact-mode: 1; }
     &:not(:has(.auto-hide)):has(.panel-collapse-guard[aria-hidden="false"]) { --phi___is-panel-open: 1; }
     &:not(:has(.panel-collapse-guard)), &:has(.panel-collapse-guard[aria-hidden="true"]) { --phi___is-panel-closed: 1; }
+    &:has(.auto-hide) { --phi__is-auto-hide: 1; }
+    &:has(.auto-hide-visible), &:has(.auto-hide-wrapper:hover) { --phi__is-auto-hide-visible: 1; }
+    &:has(.auto-hide):not(:has(.auto-hide-visible)):not(:has(.auto-hide-wrapper:hover)) { --phi__is-auto-hide-invisible: 1; }
 
     .separator-wsbutton,
     .is-pinned .title,
@@ -532,7 +535,7 @@
         }
     }
 
-    @container style(--phi___is-panel-open: 1)
+    @container style(--phi___is-panel-open: 1) or style(--phi__is-auto-hide-visible: 1)
     {
         #panels-container
         {
