@@ -575,6 +575,14 @@
         }
     }
 
+    @container style(--phi___is-panel-open: 1) and style(--phi__is-auto-hide-visible: 1)
+    {
+        .toolbar-panel
+        {
+            position: absolute;
+        }
+    }
+
     @container style(--phi___is-panel-closed: 1)
     {
         #panels-container
