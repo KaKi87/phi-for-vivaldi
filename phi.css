@@ -982,46 +982,51 @@
         #webpage-stack > .tiled
         {
             --phi__border: calc(var(--phi--webview-border) * 1px);
-            border: 0 solid transparent;
+            --phi__border-left-minus: 0px;
+            --phi__border-right-minus: 0px;
+            --phi__border-vertical-minus: 0px;
+            border-style: solid;
+            border-color: transparent;
+        }
+
+        &:not(:has(.tiled.active)) #webview-container,
+        &:has(.tiled.active) #webpage-stack > .tiled
+        {
+            border-top-width: calc(var(--phi__border) - var(--phi__border-vertical-minus));
+            border-bottom-width: calc(var(--phi__border) - var(--phi__border-vertical-minus));
+            border-left-width: calc(var(--phi__border) - var(--phi__border-left-minus));
+            border-right-width: calc(var(--phi__border) - var(--phi__border-right-minus));
         }
 
         &:not(:has(.tiled.active))
         {
-            #webview-container
-            {
-                border-top-width: var(--phi__border);
-                border-bottom-width: var(--phi__border);
-            }
 
             #browser.tabs-left #webview-container
             {
-                border-left-width: calc(var(--phi__border) - 5px);
-                border-right-width: var(--phi__border);
+                --phi__border-left-minus: 5px;
             }
 
             #browser.tabs-right #webview-container
             {
-                border-left-width: var(--phi__border);
-                border-right-width: calc(var(--phi__border) - 5px);
+                --phi__border-right-minus: 5px;
             }
         }
 
         #webpage-stack > .tiled
         {
-            border-top-width: calc(var(--phi__border) - 5px);
-            border-bottom-width: calc(var(--phi__border) - 5px);
+            --phi__border-vertical-minus: 5px;
         }
 
         #browser.tabs-left #webpage-stack > .tiled
         {
-            border-left-width: calc(var(--phi__border) - 10px);
-            border-right-width: calc(var(--phi__border) - 5px);
+            --phi__border-left-minus: 10px;
+            --phi__border-right-minus: 5px;
         }
 
         #browser.tabs-right #webpage-stack > .tiled
         {
-            border-left-width: calc(var(--phi__border) - 5px);
-            border-right-width: calc(var(--phi__border) - 10px);
+            --phi__border-left-minus: 5px;
+            --phi__border-right-minus: 10px;
         }
     }
 
