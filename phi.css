@@ -577,6 +577,10 @@
 
     @container style(--phi___is-panel-open: 1) and style(--phi__is-auto-hide-visible: 1)
     {
+        .panel-group
+        {
+            pointer-events: none;
+        }
         .toolbar-panel
         {
             position: absolute;
