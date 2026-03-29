@@ -115,7 +115,8 @@
     .tab-position,
     #main > .inner,
     .auto-hide,
-    .auto-hide-wrapper
+    .auto-hide-wrapper,
+    .auto-hide-wrapper:before
     {
         display: contents !important;
     }
@@ -997,7 +998,10 @@
             border-left-width: calc(var(--phi__border) - var(--phi__border-left-minus));
             border-right-width: calc(var(--phi__border) - var(--phi__border-right-minus));
         }
+    }
 
+    @container (not style(--phi--webview-border: 0)) and ((not style(--phi__is-auto-hide: 1)) or style(--phi__is-auto-hide-visible: 1))
+    {
         &:not(:has(.tiled.active))
         {
 
@@ -1027,6 +1031,16 @@
         {
             --phi__border-left-minus: 5px;
             --phi__border-right-minus: 10px;
+        }
+    }
+
+    @container (not style(--phi--webview-border: 0)) and style(--phi__is-auto-hide: 1)
+    {
+        #webpage-stack > .tiled
+        {
+            --phi__border-vertical-minus: 5px;
+            --phi__border-left-minus: 5px;
+            --phi__border-right-minus: 5px;
         }
     }
 
