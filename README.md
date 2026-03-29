@@ -91,7 +91,7 @@ Applying modifications requires restarting Vivaldi.
 - You may disable Phi by setting the tab bar position to top or bottom or toggling the tab bar off ;
 - Simultaneously using Phi with another CSS mod is not supported.
 
-### **Experimental** auto-hide support
+### EXPERIMENTAL auto-hide support ([screenshot & feedback](https://old.reddit.com/r/vivaldibrowser/comments/1s73abs/new_on_%CF%86_phi_the_ultimate_vertical_experience_for/))
 
 Auto-hide support is experimental. The following bugs are known and will be worked on in the future (help is welcome) :
 
