@@ -168,6 +168,25 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 - [(Address Bar + Title Bar + Status Bar) = Docked to side | Vivaldi Forum](https://forum.vivaldi.net/topic/80588/address-bar-title-bar-status-bar-docked-to-side)
 - [HKayn/vivaldi-vh](https://github.com/HKayn/vivaldi-vh)
 
+## :heart: Vivaldi's progress
+
+Recent changes in Vivaldi's native feature are getting it closer and closer to making Phi outlive its usefulness (I would like nothing more) :
+
+- In Vivaldi 7.6, the URL bar can now be moved from the title bar to the sidebar ;
+- In Vivaldi 7.9, the title bar can be auto-hidden.
+
+Resulting in the following :
+
+| 7.6                                   | 7.9                                   |
+|---------------------------------------|---------------------------------------|
+| ![](https://i.goopics.net/zfsvgh.png) | ![](https://i.goopics.net/rikphi.png) |
+
+Native Vivaldi can now display a fully vertical UI, despite not being complete yet, while freeing from come Phi constraints like the incompatibility with the *accordion* tab stacking mode.
+
+Although, it still doesn't implement some exclusive Phi features like window controls in the sidebar, icon-only pinned tabs, and proper compact UI density support for this layout.
+
+*Detailed comparison table to be added.*
+
 ## :technologist: Development notes
 
 Guide : [Customizing Vivaldi’s UI with CSS mods - gabevilela.vivaldi.net](https://gabevilela.vivaldi.net/2020/12/26/guide-customizing-vivaldis-ui-with-css-mods/)
