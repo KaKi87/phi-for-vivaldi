@@ -1,0 +1,257 @@
+/* lφ Lo-Phi (/'loʊ,faɪ/)
+ * Lo-Fi version of Phi, the ultimate vertical experience theme for Vivaldi, made with attention to details.
+ * Version 2026_05_15.0
+ *
+ * Last Linux test   : -
+ * Last Windows test : -
+ * Last Mac test     : Lo-Phi current on Vivaldi v7
+ *
+ * (C) 2026 — KaKi87
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * https://git.kaki87.net/KaKi87/phi-for-vivaldi/LoPhi
+ */
+
+ /*┌──────────────────┐
+   │User customization│
+   └──────────────────┘*/
+
+:root
+{
+	--phi--pinned-column-count: 4;
+	--phi--is-stacked-tabs-inline: 1;
+}
+
+/*
+ * You may copy the above settings in a separate 'phi-custom.css'
+ * while replacing ':root' with 'body' to persist your customizations when updating.
+ * See the README for detailed instructions.
+ */
+@import './phi-settings.css';
+
+/*┌───────────┐
+  │Source code│
+  └───────────┘*/
+
+#app:has(#browser:not(.inner, .minimal-ui, .popup, .tabs-top, .tabs-bottom, .break-mode, .tabs-off))
+{
+	.tab-strip
+	{
+		display: grid;
+		grid-template-columns: repeat(var(--phi--pinned-column-count), minmax(0, 1fr));
+		grid-auto-rows: 2rem;
+		gap: 5px;
+	
+		.tab-position,
+		.separator
+		{
+			position: relative;
+			transform: none;
+			height: 100%;
+		}
+	
+		.tab-position
+		{
+			& > :first-child,
+			& > :first-child > :first-child
+			{
+				max-height: none;
+			}
+	
+			&.is-pinned
+			{
+				grid-row: span 2;
+	
+				.tab-header
+				{
+					flex: 1;
+					padding: 0;
+					justify-content: center;
+				}
+	
+				.title
+			    {
+			        display: none;
+			    }
+			}
+		
+			&:not(.is-pinned)
+			{
+				grid-column: 1 / -1;
+	
+				.tab
+				{
+					justify-content: center;
+				}
+			}
+		}
+	
+		.separator
+		{
+			align-items: center;
+		}
+	}
+	
+	@container style(--phi--is-stacked-tabs-inline: 1)
+	{
+		.tab-position:not(.is-pinned):has(> .group)
+		{
+			border: 1px solid transparent;
+			border-radius: var(--currentRadius);
+			
+			.group
+			{
+				margin: 0;
+				height: 100%;
+			}
+	
+			.tab
+			{
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				flex: 0 0 min-content;
+			}
+	
+			.tab-header
+			{
+				padding: 0 5px;
+			}
+	
+			.title
+			{
+				display: none;
+			}
+	
+			.tab-group-indicator
+			{
+				flex: 1;
+				width: 0;
+				position: relative;
+				top: unset;
+				left: unset;
+				padding: 0;
+			}
+	
+			.tab-indicator,
+			.tab-indicator::before
+			{
+				overflow: hidden;
+			}
+	
+			.tab-indicator
+			{
+				margin: 0;
+				border: 0;
+				height: 100%;
+				white-space: nowrap;
+				color: var(--colorAccentFg);
+				font-size: 12px;
+				display: flex;
+				align-items: center;
+			}
+	
+			.tab-indicator::before
+			{
+				content: attr(title);
+				padding-left: 5px;
+				text-overflow: ellipsis;
+			}
+	
+			.tab-indicator:first-child
+			{
+				border-top-left-radius: 0;
+			}
+	
+			.tab-indicator:last-child
+			{
+				border-top-right-radius: var(--currentRadius);
+				border-bottom-right-radius: var(--currentRadius);
+			}
+	
+			.tab-indicator:not(:last-child)
+			{
+				border-right: 1px solid var(--colorAccentBgAlpha);
+			}
+		}
+	
+		#browser.ui-transparent-tabs .tab-position:not(.is-pinned):has(> .group)
+		{
+			.tab,
+			.tab-indicator
+			{
+				background-color: transparent;
+			}
+	
+			&:hover,
+			&:has(.tab:hover)
+			{
+				border-color: var(--colorImageBgAlpha, var(--colorBgAlpha));
+			}
+	
+			&:hover .tab,
+			&:has(.tab:hover) .tab-indicator.active,
+			.tab-indicator:hover
+			{
+				background-color: var(--colorImageBgAlpha, var(--colorBgAlpha));
+			}
+	
+			&:has(.group.active)
+			{
+				border-color: var(--colorAccentBgAlpha);
+	
+				.tab,
+				.tab-indicator.active
+				{
+					background-color: var(--colorAccentBgAlpha);
+				}
+			}
+		}
+	
+		#browser:not(.ui-transparent-tabs) .tab-position:not(.is-pinned):has(> .group)
+		{
+			.group.active .tab
+			{
+				background-color: var(--colorBg) !important;
+			}
+	
+			.group:not(.active)
+			{
+				.tab, .tab-indicator
+				{
+					background-color: var(--colorAccentBgAlphaHeavy);
+				}
+			}
+	
+			&:has(.group.active)
+			{
+				border-color: var(--colorBg);
+	
+				.tab-indicator:not(.active)
+				{
+					background-color: var(--colorAccentBgAlphaHeavy);
+				}
+			}
+	
+			&:hover,
+			&:has(.tab:hover)
+			{
+				border-color: var(--colorAccentBgAlpha);
+			}
+	
+			&:hover .tab,
+			&:has(.tab:hover) .tab-indicator.active,
+			.group:not(.active) .tab-indicator:hover,
+			.tab-indicator:not(.active):hover
+			{
+				background-color: var(--colorAccentBgAlpha) !important;
+			}
+		}
+	
+		#browser.isblurred .tab-position:not(.is-pinned):has(> .group) .tab-indicator
+		{
+			color: var(--colorFg);
+		}
+	}
+}
