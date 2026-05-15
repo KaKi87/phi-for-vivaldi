@@ -736,7 +736,6 @@
                 align-self: end;
                 grid-column: span 1;
                 aspect-ratio: 1;
-                flex-direction: column-reverse;
                 background-color: var(--colorAccentBgAlphaHeavy);
             }
 
