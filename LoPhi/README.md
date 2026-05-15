@@ -8,6 +8,9 @@
 
 Lo-Fi variant of Phi, the ultimate vertical experience theme for Vivaldi, made with attention to details.
 
+| ![](./screenshots/1_linux.webp) | ![](./screenshots/2_mac.webp) |
+|---------------------------------|-------------------------------|
+
 ## :sparkles: Features
 
 - Supported Vivaldi features : UI auto-hide, UI on left & right sides, theming from [themes.vivaldi.net](https://themes.vivaldi.net), toggle UI, panels, popups, split tabs ;
