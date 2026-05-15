@@ -21,7 +21,7 @@ Lo-Fi variant of Phi, the ultimate vertical experience theme for Vivaldi, made w
 ## :gear: Installation
 
 1. Create a folder to download the mod into ;
-2. Download the mod by right-clicking [here](https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/LoPhi/LoPhi.css) then "Save Link As..." to the folder created in step 1 ;
+2. Download the mod by right-clicking [here](https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/Lo-Phi/Lo-Phi.css) then "Save Link As..." to the folder created in step 1 ;
 3. Go to `vivaldi:flags` and next to "Allow CSS modifications", switch "Default" to "Enabled" ;
 4. Open Vivaldi settings ;
    - (Optionally) Under "Appearance" ➔ "Window Appearance" ➔ "Status Bar", select "Status Info Overlay" ;
