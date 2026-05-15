@@ -37,6 +37,12 @@
 
 #app:has(#browser:not(.inner, .minimal-ui, .popup, .tabs-top, .tabs-bottom, .break-mode, .tabs-off))
 {
+	.resize
+	{
+		max-height: unset !important;
+		flex: 1 1 auto;
+	}
+
 	.tab-strip
 	{
 		display: grid;
