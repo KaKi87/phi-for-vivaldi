@@ -33,12 +33,14 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
 
 ## :gear: Installation ([video](https://www.youtube.com/watch?v=gt5pZEUbFbM))
 
-1. Create a folder to download the mod into ;
-2. Download the mod by right-clicking [here](https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/phi.css) then "Save Link As..." to the folder created in step 1 ;
-3. Go to `vivaldi:experiments` and check "Allow CSS modifications" ;
-4. Open Vivaldi settings ;
+1. (If going through onboarding) At the "Choose a style" step, select "Classic" ;
+2. Create a folder to download the mod into ;
+3. Download the mod by right-clicking [here](https://git.kaki87.net/KaKi87/phi-for-vivaldi/raw/branch/master/phi.css) then "Save Link As..." to the folder created in step 1 ;
+4. Go to `vivaldi:flags` and next to "Allow CSS modifications", switch "Default" to "Enabled" ;
+5. Open Vivaldi settings ;
    - Under "General" ➔ "Startup" ➔ "Default Browser", uncheck "Check on Startup" ;
-   - (Optionally, recommended on Mac), under "Appearance" ➔ "Window Appearance", check "Use Native Window" ;
+   - (If not gone through onboarding) Under "Appearance" ➔ "Layout Presets", select "Classic" ;
+   - (Optionally, recommended on Mac) Under "Appearance" ➔ "Window Appearance", check "Use Native Window" ;
    - Under "Appearance" ➔ "Window Appearance" ➔ "Status Bar", select "Status Info Overlay" or "Hide Status Bar" ;
    - Under "Appearance" ➔ "Custom UI Modifications", open the folder created in step 1 ;
    - Under "Tabs" ➔ "Tabs" ➔ "Tab Bar Position", select "Left" or "Right" ;
@@ -48,13 +50,13 @@ The ultimate vertical experience mod for Vivaldi, made with attention to details
    - Under "Panel" ➔ "Panels" ➔ "Panel Options", check "Floating Panel" ;
    - (Optionally) Under "Address Bar" ➔ "Extension Visibility", check "Expand Hidden Extensions to Drop-Down Menu" ;
    - (Optionally) Under "Keyboard" ➔ "View" ➔ "Panel Toggle", set a shortcut for compact mode ;
-5. Quit and relaunch Vivaldi ;
-6. Start tweaking the UI ;
+6. Quit and relaunch Vivaldi ;
+7. Start tweaking the UI ;
    - Right-click in the blank above the URL bar then "Customize Toolbar..." ;
    - Right-click the space items then "Remove from Toolbar" : left to the "Back" button, below the URL bar, below the panel buttons at the bottom ;
    - Then add, move and remove whatever you want, before clicking "Done" ;
-7. (Optionally) Star the [GitHub repo](https://github.com/KaKi87/phi-for-vivaldi) ;
-8. Subscribe to Theo.
+8. (Optionally) Star the [GitHub repo](https://github.com/KaKi87/phi-for-vivaldi) ;
+9. Subscribe to Theo.
 
 ##  :hammer_and_wrench: Customization
 
