@@ -167,7 +167,7 @@ Are you using Phi ? You're welcome to star the [GitHub repo](https://github.com/
 [@tobusy / @ARobertDev](https://github.com/ARobertDev) — Discord community member
 </td></tr></table>
 
-[![](https://api.star-history.com/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline&theme=dark)](https://github.com/KaKi87/phi-for-vivaldi)
+[![](https://star-history.dera.page/svg?repos=KaKi87/phi-for-vivaldi&type=Timeline&theme=dark)](https://github.com/KaKi87/phi-for-vivaldi)
 
 ## :link: Related projects
 
